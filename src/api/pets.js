@@ -25,3 +25,13 @@ export const addPet = (user, newPet) => {
         } 
     })
 }
+
+export const deletePet = (user, itemId) => {
+    return axios({
+        method: 'DELETE',
+        url: `${apiUrl}/pets/${itemId}`,
+        headers : {
+            Authorization: `Token token=${user.token}`
+        }
+    })
+}
