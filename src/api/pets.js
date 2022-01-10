@@ -11,3 +11,17 @@ export const getUsersPets = (user) => {
     })
 }
 
+export const addPet = (user, newPet) => {
+    return axios({
+        method: 'POST',
+        url: apiUrl + '/pets',
+        headers: {
+            Authorization: `Token token=${user.token}`
+        },
+        data: {
+            pet: {
+                name: newPet.name
+            }
+        } 
+    })
+}
