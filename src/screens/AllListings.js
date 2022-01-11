@@ -1,17 +1,22 @@
 import React from "react";
 import List from "./List";
-// import HomeScreen from "./HomeScreen";
+
 
 export default function AllListings (props) {
+    console.log('these are all listing props', props)
     const listings = props.allUsers.map((l) =>{
-        console.log(l)
+        console.log('all listing l',l)
         return <div>
-            <List listSitter={l} />
+            <List sitterListings={l} />
         </div>
     })
     return (
-        <div>
-            {listings}
-        </div>
+                <>
+                {listings}
+                </>
+
+
+            
+            
     )
 }

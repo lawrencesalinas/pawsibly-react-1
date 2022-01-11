@@ -8,6 +8,8 @@ import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAl
 import Header from './components/shared/Header'
 import RequireAuth from './components/shared/RequireAuth'
 import HomeScreen from './screens/HomeScreen'
+import ListingDetail from './screens/ListingDetail'
+import AllListings from './screens/AllListings'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
@@ -70,6 +72,8 @@ const App = () => {
 				<Header user={user} />
 				<Routes>
 					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
+					<Route path='/sitterlistings' element={<AllListings allUsers={allUsers} />} />
+					<Route path='/sitterlisting/:id' element={<ListingDetail />} />
 					<Route
 						path='/sign-up/'
 						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
