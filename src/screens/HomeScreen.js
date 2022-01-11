@@ -1,9 +1,9 @@
-import React, {useState, useEffect} from "react"
-import AllListings from './AllListings'
+import React, {useState} from "react"
+// import AllListings from './AllListings'
 
 
 
-const Home = (props) => {
+const HomeScreen = (props) => {
 	// const { msgAlert, user } = props
 	console.log('props in home', props)
 
@@ -11,36 +11,38 @@ const Home = (props) => {
 
 	const searchItems = (e)=> {
 		e.preventDefault()
-		console.log('name', e.target.name.value)
-		let search = e.target.name.value
+		console.log('location', e.target.location.value)
+		let search = e.target.location.value
 
-	}
+	
+	console.log('user props', props.allUsers)
 
-	const filteredListings = props.allUsers.data.user.filter((u) =>{
-		console.log('u thing', u)
-		return (
-			(
-				// u.location.toString().includes(window.location.toString())
-				u.name.toLowerCase().includes(search.toLowerCase())
+	const filteredListings = props.allUsers.filter((u) =>{
+		return(
+			
+			console.log('this is u thing', u)
+			// (u.location.toString().includes(search.toString()))
 			)
-		)
+		
 	})
 
-	console.log('user search results', filteredListings)
-	setSearchResults(filteredListings)
+}
+
+	// console.log('user search results', filteredListings)
+	// setSearchResults(filteredListings)
 
 	return (
 		<>
 			<h2>Search for Sitters</h2>
 			<form onSubmit={searchItems}>
 				<label>location</label>
-				<input type="text" name="name" id="name" />
+				<input type="number" name="location" id="location" />
 
 				<input type="submit"/>
             </form>
-			<AllListings allUsers={searchResults}/>
+			{/* <AllListings allUsers={searchResults}/> */}
 		</>
 	)
 }
 
-export default Home
+export default HomeScreen
