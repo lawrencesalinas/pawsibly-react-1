@@ -1,5 +1,5 @@
 // import React, { Component, Fragment } from 'react'
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
@@ -12,11 +12,14 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import axios from 'axios'
 
 const App = () => {
 
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
+  const [allUsers, setAllUsers] = useState([])
+
 
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
@@ -40,13 +43,35 @@ const App = () => {
 		})
 	}
 
+	useEffect(() =>{
+		console.log('getting all users')
+		getUsers()
+	}, [])
+
+	const getUsers = () =>{
+		axios({
+			url: `http://localhost:8000/users`,
+			method: 'GET',
+		})
+		.then(foundUsers=>{
+			console.log('finding users', foundUsers)
+			setAllUsers(foundUsers)
+			console.log('all users:', foundUsers)
+		})
+		.catch(err =>{
+			console.log(err)
+		})
+	}
+
+
+
 		return (
 			<Fragment>
 				<Header user={user} />
 				<Routes>
-					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+					<Route path='/' element={<Home msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
 					<Route
-						path='/sign-up'
+						path='/sign-up/'
 						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
 					/>
 					<Route
