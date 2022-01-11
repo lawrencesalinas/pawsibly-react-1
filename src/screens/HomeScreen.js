@@ -11,8 +11,8 @@ const HomeScreen = (props) => {
 
 	const searchItems = (e)=> {
 		e.preventDefault()
-		console.log('location', e.target.location.value)
-		let search = e.target.location.value
+		console.log('zipcode', e.target.zipcode.value)
+		let search = e.target.zipcode.value
 
 	
 	console.log('user props', props.allUsers)
@@ -20,23 +20,20 @@ const HomeScreen = (props) => {
 	const filteredListings = props.allUsers.filter((u) =>{
 		return(
 			
-			console.log('this is u thing', u)
-			// (u.location.toString().includes(search.toString()))
-			)
-		
+			// console.log('this is u thing', u.zipcode)
+			u.zipcode.toString().includes(search.toString())
+		)
 	})
 
-}
-
-	// console.log('user search results', filteredListings)
-	// setSearchResults(filteredListings)
-
+	console.log('user search results', filteredListings)
+	setSearchResults(filteredListings)
+	}
 	return (
 		<>
 			<h2>Search for Sitters</h2>
 			<form onSubmit={searchItems}>
 				<label>location</label>
-				<input type="number" name="location" id="location" />
+				<input type="number" name="zipcode" id="zipcode" />
 
 				<input type="submit"/>
             </form>
