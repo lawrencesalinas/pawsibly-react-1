@@ -7,7 +7,7 @@ import { v4 as uuid } from 'uuid'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/shared/Header'
 import RequireAuth from './components/shared/RequireAuth'
-import Home from './components/Home'
+import HomeScreen from './screens/HomeScreen'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
@@ -69,7 +69,7 @@ const App = () => {
 			<Fragment>
 				<Header user={user} />
 				<Routes>
-					<Route path='/' element={<Home msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
+					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
 					<Route
 						path='/sign-up/'
 						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
