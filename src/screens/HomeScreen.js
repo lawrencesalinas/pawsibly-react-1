@@ -1,5 +1,6 @@
 import React, {useState} from "react"
-// import AllListings from './AllListings'
+import AllListings from './AllListings'
+import List from "./List"
 
 
 
@@ -37,7 +38,7 @@ const HomeScreen = (props) => {
 
 				<input type="submit"/>
             </form>
-			{/* <AllListings allUsers={searchResults}/> */}
+			<AllListings allUsers={searchResults}/>
 		</>
 	)
 }
