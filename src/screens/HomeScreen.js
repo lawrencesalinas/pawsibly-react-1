@@ -8,23 +8,22 @@ const HomeScreen = (props) => {
 
 	const [searchResults, setSearchResults] = useState([])
 
-	const searchItems = (e)=> {
+	const searchItems = (e) => {
 		e.preventDefault()
 		console.log('zipcode', e.target.zipcode.value)
 		let search = e.target.zipcode.value
 		console.log('user props', props.allUsers)
 
-	const filteredListings = props.allUsers.filter((u) =>{
-		
-			return(u.zipcode.toString().includes(search.toString()))
-	})
-	 setSearchResults(filteredListings)
-	console.log('user search results', filteredListings)
+		const filteredListings = props.allUsers.filter((u) => {
+
+			return (u.zipcode.toString().includes(search.toString()))
+		})
+		setSearchResults(filteredListings)
+		console.log('user search results', filteredListings)
 
 	}
 	return (
-		
-    		<>
+		<>
 			<div className="section white">
 				<div className="row container">
 					<h2 className="header">
@@ -33,9 +32,9 @@ const HomeScreen = (props) => {
 					<form onSubmit={searchItems}>
 						<label>location</label>
 						<input type="number" name="zipcode" id="zipcode" />
-
 						<input type="submit" />
 					</form>
+					<AllListings allUsers={searchResults} />
 				</div>
 			</div>
 			<div>
@@ -86,16 +85,7 @@ const HomeScreen = (props) => {
 					</div>
 				</div>
 			</footer>
-			<h2>Search for Sitters</h2>
-			<form onSubmit={searchItems}>
-				<label>location</label>
-				<input type="number" name="zipcode" id="zipcode" />
-				<input type="submit"/>
-            </form>
-			<AllListings allUsers={searchResults} />
-		{/* <List allUsers={searchResults} /> */}
 		</>
-
 	)
 }
 
