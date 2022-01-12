@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import AllListings from './AllListings'
-import List from "./List"
 import { Parallax } from "react-materialize"
 
 
@@ -24,7 +23,7 @@ const HomeScreen = (props) => {
 
 	}
 	return (
-		<>
+		
     		<>
 			<div className="section white">
 				<div className="row container">
@@ -93,7 +92,7 @@ const HomeScreen = (props) => {
 				<input type="number" name="zipcode" id="zipcode" />
 				<input type="submit"/>
             </form>
-		<AllListings allUsers={searchResults} />
+			<AllListings allUsers={searchResults} />
 		{/* <List allUsers={searchResults} /> */}
 		</>
 

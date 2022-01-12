@@ -18,6 +18,9 @@ const authenticatedOptions = (
 				Sign Out
 			</Link>
 		</Nav.Link>
+		<Nav.Link>
+		    <Link to='profile' style={linkStyle}>Profile</Link>
+        </Nav.Link>
 	</>
 )
 
@@ -28,6 +31,9 @@ const unauthenticatedOptions = (
         </Nav.Link>
         <Nav.Link>
 		    <Link to='sign-in' style={linkStyle}>Sign In</Link>
+        </Nav.Link>
+		<Nav.Link>
+		    <Link to='Profile' style={linkStyle}>Profile</Link>
         </Nav.Link>
 	</>
 )
@@ -43,7 +49,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-	<Navbar bg='warning' variant='dark' expand='md'>
+	<Navbar bg='primary' variant='dark' expand='md'>
 		<Navbar.Brand>
             <Link to='/' style={linkStyle}>
                 react-auth-template

@@ -10,7 +10,7 @@ const listOfPets = props.myPets.map(pet=>{
 return(
     <div>
         <h1>{listOfPets}</h1>
-            <PetDetail/>
+            {/* <PetDetail /> */}
     </div>
 )
 }
