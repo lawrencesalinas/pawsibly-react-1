@@ -58,7 +58,7 @@ const App = () => {
 		})
 		.then(foundUsers=>{
 			// console.log('finding users', foundUsers)
-			setAllUsers(foundUsers)
+			setAllUsers(foundUsers.data.user)
 			console.log('all users:', foundUsers)
 		})
 		.catch(err =>{

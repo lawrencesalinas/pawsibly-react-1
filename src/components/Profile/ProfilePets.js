@@ -1,16 +1,20 @@
-import React from 'react'
-import PetDetail from './PetDetail';
-
+import React from "react";
+import { Link } from "react-router-dom";
+import PetDetail from "./PetDetail";
 
 export default function ProfilePets(props) {
-const listOfPets = props.myPets.map(pet=>{
-        return pet.name
-})
+//   console.log("hello", props.myPets);
+  const listOfPets = props.myPets.map((pet) => {
+    return (
+      <div>
+        <Link to={`/pets/${pet.id}`}>{pet.name}</Link>
+      </div>
+    )
+  })
 
-return(
+  return (
     <div>
-        <h1>{listOfPets}</h1>
-            <PetDetail/>
+      <h1>{listOfPets}</h1>
     </div>
-)
+  )
 }

@@ -20,11 +20,11 @@ const HomeScreen = (props) => {
 			return(u.zipcode.toString().includes(search.toString()))
 	})
 	 setSearchResults(filteredListings)
-	console.log('user search results', filteredListings)
+	// console.log('user search results', filteredListings)
 
 	}
 	return (
-		<>
+		
     		<>
 			<div className="section white">
 				<div className="row container">

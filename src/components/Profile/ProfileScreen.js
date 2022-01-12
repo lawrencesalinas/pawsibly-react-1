@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { getUsersAndPets } from "../../api/pets";
+import PetDetail from "./PetDetail";
 import ProfilePets from "./ProfilePets";
 
-const ProfileScreen = (props) => {
+
+export default function ProfileScreen(props){
   // user data and user pet is called here
   const [userPets, setUserPets] = useState([]);
   const [userData, setUserData] = useState([]);
@@ -31,4 +33,4 @@ const ProfileScreen = (props) => {
   );
 };
 
-export default ProfileScreen;
+
