@@ -1,19 +1,19 @@
 import React from 'react'
-// import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 export default function List(props) {
     console.log('props in list', props)
     return (
         <div>
-            <h1>These are all the sitters in zipcode {props.listSitter.zipcode}</h1>
+            {/* <h1>These are all the sitters in zipcode {props.sitterListing.zipcode}</h1> */}
             <div>
             <ul>
                 <li>
-                    {props.listSitter.name}
+                    <Link to={`/sitterlisting/${props.sitterListings.id}`}>{props.sitterListings.name}</Link>
                     </li>
                     <li>
-                    {props.listSitter.rating}
+                    {props.sitterListings.rating}
                     </li>
             </ul>
             </div>

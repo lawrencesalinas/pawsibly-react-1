@@ -5,32 +5,27 @@ import { Parallax } from "react-materialize"
 
 
 const HomeScreen = (props) => {
-	// const { msgAlert, user } = props
 	console.log('props in home', props)
 
 	const [searchResults, setSearchResults] = useState([])
 
-	const searchItems = (e) => {
+	const searchItems = (e)=> {
 		e.preventDefault()
 		console.log('zipcode', e.target.zipcode.value)
 		let search = e.target.zipcode.value
-
-
 		console.log('user props', props.allUsers)
 
-		const filteredListings = props.allUsers.filter((u) => {
-			return (
+	const filteredListings = props.allUsers.filter((u) =>{
+		
+			return(u.zipcode.toString().includes(search.toString()))
+	})
+	 setSearchResults(filteredListings)
+	console.log('user search results', filteredListings)
 
-				// console.log('this is u thing', u.zipcode)
-				u.zipcode.toString().includes(search.toString())
-			)
-		})
-
-		console.log('user search results', filteredListings)
-		setSearchResults(filteredListings)
 	}
 	return (
 		<>
+    		<>
 			<div className="section white">
 				<div className="row container">
 					<h2 className="header">
@@ -92,6 +87,14 @@ const HomeScreen = (props) => {
 					</div>
 				</div>
 			</footer>
+			<h2>Search for Sitters</h2>
+			<form onSubmit={searchItems}>
+				<label>location</label>
+				<input type="number" name="zipcode" id="zipcode" />
+				<input type="submit"/>
+            </form>
+		<AllListings allUsers={searchResults} />
+		{/* <List allUsers={searchResults} /> */}
 		</>
 
 	)
