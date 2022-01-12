@@ -73,7 +73,7 @@ const App = () => {
 				<Routes>
 					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
 					<Route path='/sitterlistings' element={<AllListings allUsers={allUsers} />} />
-					<Route path='/sitterlisting/:id' element={<ListingDetail />} />
+					<Route path='/sitterlisting/:id' element={<ListingDetail />} user={user}/>
 					<Route
 						path='/sign-up/'
 						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
