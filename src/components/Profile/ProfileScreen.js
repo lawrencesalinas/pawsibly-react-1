@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { getUsersAndPets } from "../../api/pets";
-import PetDetail from "./PetDetail";
 import ProfilePets from "./ProfilePets";
+import CreatePet from './CreatePet'
+
 
 
 export default function ProfileScreen(props){
@@ -23,12 +24,16 @@ export default function ProfileScreen(props){
 
   return (
     <div>
+  
       <h1>I am the user</h1>
       <h1>{userData.email}</h1>
       <h2>{userData.namer}</h2>
 
       <h1>List of owner pet</h1>
       <ProfilePets myPets={userPets} />
+      <h1>add a pet</h1>
+      <CreatePet user={props.user}/>
+ 
     </div>
   );
 };

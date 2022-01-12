@@ -4,6 +4,7 @@ import List from "./List"
 import { Parallax } from "react-materialize"
 
 
+
 const HomeScreen = (props) => {
 	console.log('props in home', props)
 
@@ -11,9 +12,9 @@ const HomeScreen = (props) => {
 
 	const searchItems = (e)=> {
 		e.preventDefault()
-		console.log('zipcode', e.target.zipcode.value)
+		// console.log('zipcode', e.target.zipcode.value)
 		let search = e.target.zipcode.value
-		console.log('user props', props.allUsers)
+		// console.log('user props', props.allUsers)
 
 	const filteredListings = props.allUsers.filter((u) =>{
 		
@@ -26,6 +27,7 @@ const HomeScreen = (props) => {
 	return (
 		
     		<>
+
 			<div className="section white">
 				<div className="row container">
 					<h2 className="header">

@@ -7,7 +7,7 @@ export default function ProfilePets(props) {
   const listOfPets = props.myPets.map((pet) => {
     return (
       <div>
-        <Link to={`/pets/${pet.id}`}>{pet.name}</Link>
+        <Link key ={pet.id} to={`/pets/${pet.id}`}>{pet.name}</Link>
       </div>
     )
   })

@@ -14,7 +14,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import axios from 'axios'
-import PetDetail from './components/Profile/PetDetail'
+
 
 
 const App = () => {
@@ -83,7 +83,7 @@ const App = () => {
 					<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />}/>
 					<Route path='/sign-in'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
 					<Route path='/pets'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
-					<Route path='/pets/:id 'element={<PetDetail msgAlert={msgAlert} setUser={setUser} />}/>
+					{/* <Route path='/pets/:id 'element={<PetScreen msgAlert={msgAlert} setUser={setUser} />}/> */}
           <Route
             path='/sign-out'
             element={
