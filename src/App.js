@@ -8,13 +8,14 @@ import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAl
 import Header from './components/shared/Header'
 import RequireAuth from './components/shared/RequireAuth'
 import HomeScreen from './screens/HomeScreen'
-import ListingDetail from './screens/ListingDetail'
-import AllListings from './screens/AllListings'
+import ProfileScreen from './components/Profile/ProfileScreen'
 import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import axios from 'axios'
+import PetDetail from './components/Profile/PetDetail'
+
 
 const App = () => {
 
@@ -29,7 +30,6 @@ const App = () => {
     console.log('clear user ran')
     setUser(null)
   }
-
 	const deleteAlert = (id) => {
 		setMsgAlerts((prevState) => {
 			return (prevState.filter((msg) => msg.id !== id) )
@@ -40,6 +40,7 @@ const App = () => {
 		const id = uuid()
 		setMsgAlerts(() => {
 			return (
+				
 				[{ heading, message, variant, id }]
       )
 		})
@@ -56,9 +57,9 @@ const App = () => {
 			method: 'GET',
 		})
 		.then(foundUsers=>{
-			console.log('finding users', foundUsers)
-			setAllUsers(foundUsers.data.user)
-			console.log('all users:', foundUsers.data.user)
+			// console.log('finding users', foundUsers)
+			setAllUsers(foundUsers)
+			console.log('all users:', foundUsers)
 		})
 		.catch(err =>{
 			console.log(err)
@@ -67,21 +68,22 @@ const App = () => {
 
 
 
+
+	
+
+
 		return (
 			<Fragment>
+				
 				<Header user={user} />
+				
 				<Routes>
 					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
-					<Route path='/sitterlistings' element={<AllListings allUsers={allUsers} />} />
-					<Route path='/sitterlisting/:id' element={<ListingDetail />} />
-					<Route
-						path='/sign-up/'
-						element={<SignUp msgAlert={msgAlert} setUser={setUser} />}
-					/>
-					<Route
-						path='/sign-in'
-						element={<SignIn msgAlert={msgAlert} setUser={setUser} />}
-					/>
+					<Route path='/profile' element={<ProfileScreen  user={user}    />} />
+					<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />}/>
+					<Route path='/sign-in'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
+					<Route path='/pets'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
+					<Route path='/pets/:id 'element={<PetDetail msgAlert={msgAlert} setUser={setUser} />}/>
           <Route
             path='/sign-out'
             element={
