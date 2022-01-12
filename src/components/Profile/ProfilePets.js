@@ -14,7 +14,8 @@ export default function ProfilePets(props) {
 
   return (
     <div>
-      <h1>{listOfPets}</h1>
+        <h1>{listOfPets}</h1>
+            {/* <PetDetail /> */}
     </div>
   )
 }

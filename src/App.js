@@ -14,7 +14,9 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import axios from 'axios'
-
+import PetDetail from './components/Profile/PetDetail'
+import AllListings from './screens/AllListings'
+import ListingDetail from './screens/ListingDetail'
 
 
 const App = () => {
@@ -59,7 +61,7 @@ const App = () => {
 		.then(foundUsers=>{
 			// console.log('finding users', foundUsers)
 			setAllUsers(foundUsers.data.user)
-			console.log('all users:', foundUsers)
+			console.log('all users:', foundUsers.data.user)
 		})
 		.catch(err =>{
 			console.log(err)
@@ -79,6 +81,8 @@ const App = () => {
 				
 				<Routes>
 					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
+					<Route path='/sitterlistings' element={<AllListings allUsers={allUsers} />} />
+					<Route path='/sitterlisting/:id' element={<ListingDetail />} user={user}/>
 					<Route path='/profile' element={<ProfileScreen  user={user}    />} />
 					<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />}/>
 					<Route path='/sign-in'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
