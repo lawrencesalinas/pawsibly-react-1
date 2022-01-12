@@ -1,3 +1,4 @@
+
 // import React from 'react'
 // import { getSinglePet } from '../../api/pets'
 // import { useState, useEffect, useParams } from 'react'
@@ -34,4 +35,4 @@
 //     )
 // }
 
-// export default PetDetail
+
