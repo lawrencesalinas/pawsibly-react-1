@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+import { getUsersPets } from "../../api/pets"
 
 export default function Profile(props) {
 
