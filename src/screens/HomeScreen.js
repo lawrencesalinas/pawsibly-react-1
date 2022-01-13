@@ -4,7 +4,7 @@ import { Parallax } from "react-materialize"
 
 
 const HomeScreen = (props) => {
-	console.log('props in home', props)
+	console.log('props in home for sitters', props)
 
 	const [searchResults, setSearchResults] = useState([])
 
@@ -12,14 +12,14 @@ const HomeScreen = (props) => {
 		e.preventDefault()
 		console.log('zipcode', e.target.zipcode.value)
 		let search = e.target.zipcode.value
-		console.log('user props', props.allUsers)
+		console.log('sitter props', props.allSitters)
 
-	const filteredListings = props.allUsers.filter((u) =>{
+	const filteredListings = props.allSitters.filter((u) =>{
 		
 			return(u.zipcode.toString().includes(search.toString()))
 	})
 	 setSearchResults(filteredListings)
-	console.log('user search results', filteredListings)
+	console.log('sitters search results', filteredListings)
 
 	}
 	return (
@@ -92,7 +92,7 @@ const HomeScreen = (props) => {
 				<input type="number" name="zipcode" id="zipcode" />
 				<input type="submit"/>
             </form>
-			<AllListings allUsers={searchResults} />
+			<AllListings allSitters={searchResults} />
 		{/* <List allUsers={searchResults} /> */}
 		</>
 

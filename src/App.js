@@ -24,7 +24,7 @@ const App = () => {
 
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
-  const [allUsers, setAllUsers] = useState([])
+  const [allSitters, setAllSitters] = useState([])
 
 
   console.log('user in app', user)
@@ -50,19 +50,19 @@ const App = () => {
 	}
 
 	useEffect(() =>{
-		console.log('getting all users')
-		getUsers()
+		console.log('getting all sitters')
+		getSitters()
 	}, [])
 
-	const getUsers = () =>{
+	const getSitters = () =>{
 		axios({
-			url: `http://localhost:8000/users`,
+			url: `http://localhost:8000/sitters`,
 			method: 'GET',
 		})
-		.then(foundUsers=>{
-			// console.log('finding users', foundUsers)
-			setAllUsers(foundUsers.data.user)
-			console.log('all users:', foundUsers.data.user)
+		.then(foundSitters=>{
+			// console.log('finding users', foundUsenprs)
+			setAllSitters(foundSitters.data.sitters)
+			console.log('all sitters:', foundSitters.data.sitters)
 		})
 		.catch(err =>{
 			console.log(err)
@@ -81,10 +81,10 @@ const App = () => {
 				<Header user={user} />
 				
 				<Routes>
-					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
-					<Route path='/sitterlistings' element={<AllListings allUsers={allUsers} />} />
-					<Route path='/sitterlisting/:id' element={<ListingDetail allUsers={allUsers} user={user}/>} />
-					<Route path='/createbooking' element={<CreateBooking allUsers={allUsers} user={user}/>} />
+					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allSitters={allSitters} user={user} />} />
+					<Route path='/sitterlistings' element={<AllListings allSitters={allSitters}  />} />
+					<Route path='/sitterlisting/:id' element={<ListingDetail allSitters={allSitters}  user={user}/>} />
+					<Route path='/createbooking' element={<CreateBooking allSitters={allSitters}  user={user}/>} />
 					<Route path='/profile' element={<ProfileScreen  user={user}    />} />
 					<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />}/>
 					<Route path='/sign-in'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
