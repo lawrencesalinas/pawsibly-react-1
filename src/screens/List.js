@@ -2,6 +2,16 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Col, Icon, Row } from 'react-materialize'
 
+
+import { useState } from 'react';
+import DateRangePicker from '@wojtekmaj/react-daterange-picker';
+
+// import './Sample.less';
+
+const now = new Date();
+const yesterdayBegin = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
+const todayEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999);
+
 export default function List(props) {
     console.log('props in list', props)
     return (
@@ -38,6 +48,7 @@ export default function List(props) {
                     </div>
                 </Col>
             </Row>
+
         </>
     )
 }
