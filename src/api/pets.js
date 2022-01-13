@@ -19,25 +19,11 @@ export const getSinglePet = (user,id) => {
         method: 'GET',
         url: `${apiUrl}/pets${id}`,
         headers: {
-            'Authorization': `Token =${user.token}`
+            'Authorization': `Token ${user.token}`
         }
     })
 }
 
-// export const getSinglePet = (user) => {
-//     return axios({
-//         method: 'GET',
-//         url: apiUrl + '/pets',
-//         headers: {
-//             'Authorization': `Token ${user.token}`
-//         },
-//         data: {
-//             pet: {
-               
-//             }
-//         } 
-//     })
-// }
 
 export const createPet = (user) => {
     return axios({
