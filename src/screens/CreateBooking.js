@@ -51,8 +51,8 @@ export default function CreateBooking (props) {
         <div class="card small">
             <div class="row center">
                 <div class="col s12 m6">
-                    <div class="card #e57373 red lighten-2">
-                        <div class="card-content white-text">
+                    {/* <div class="card"> */}
+                        <div class="card-content black-text">
                             <span class="card-title">create a booking</span>
                             {/* <form onSubmit={createdBooking}> */}
                             {/* <label class="black-text" htmlFor='name'>Sitter Name:</label>
@@ -74,10 +74,12 @@ export default function CreateBooking (props) {
                             />
                             <br></br>
                             <Button onClick={createBooking}>schedule</Button>
+                                border='none'                            
+                            {/* <Button onClick={createBooking}>schedule</Button> */}
                             {/* </form> */}
                             <a class="btn-floating btn-large waves-effect waves-light yellow" onClick={createBooking}><i class="material-icons">add</i></a>
                         </div>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         </div>
