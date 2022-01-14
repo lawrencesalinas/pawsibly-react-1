@@ -70,6 +70,7 @@ export default function CreateBooking (props) {
                                 id='date'
                                 onChange={handleDate}
                                 value={value}
+                                
                             />
                             <br></br>
                             <Button onClick={createBooking}>schedule</Button>
