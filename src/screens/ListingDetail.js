@@ -57,6 +57,7 @@ export default function ListingDetail(props) {
             </Row>
             <>
                 <CreateBooking singleSitter={singleSitter} user={props.user} />
+                <Link to={`/review/${singleSitter.id}`} class="black-text">Create a Review</Link>
             </>
 
         </>
