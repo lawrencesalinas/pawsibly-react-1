@@ -16,20 +16,6 @@ export default function List(props) {
     console.log('props in sitter list', props)
     return (
         <>
-        <div>
-            {/* <h1>These are all the sitters in zipcode {props.sitterListing.zipcode}</h1> */}
-            <div>
-            <ul>
-                <li>
-                    <Link to={`/sitterlisting/${props.sitterListings.id}`}>{props.sitterListings.first_name}</Link>
-                    </li>
-                    <li>
-                    {props.sitterListings.rating}
-                    </li>
-            </ul>
-            </div>
-        </div>
-        <>
             <Row>
                 <Col
                     m={6}
@@ -45,7 +31,7 @@ export default function List(props) {
                             closeIcon={<Icon>close</Icon>}
                             revealIcon={<Icon>more_vert</Icon>}
                             textClassName="white-text"
-                            title={props.sitterListings.name}
+                            title={props.sitterListings.first_name}
                         >
                             <ul >
                                 <li>
@@ -62,8 +48,6 @@ export default function List(props) {
                     </div>
                 </Col>
             </Row>
-
-        </>
         </>
     )
 }

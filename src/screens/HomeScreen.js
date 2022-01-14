@@ -86,14 +86,6 @@ const HomeScreen = (props) => {
 					</div>
 				</div>
 			</footer>
-			<h2>Search for Sitters</h2>
-			<form onSubmit={searchItems}>
-				<label>location</label>
-				<input type="number" name="zipcode" id="zipcode" />
-				<input type="submit"/>
-            </form>
-			<AllListings allSitters={searchResults} />
-		{/* <List allUsers={searchResults} /> */}
 		</>
 	)
 }
