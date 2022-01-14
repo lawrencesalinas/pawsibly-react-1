@@ -87,7 +87,7 @@ const App = () => {
 
 					<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />}/>
 					<Route path='/sign-in'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
-					<Route path='/pets'element={<ProfileScreen msgAlert={msgAlert} setUser={setUser} user={admin} />}  />
+					<Route path='/profile'element={<ProfileScreen msgAlert={msgAlert} setUser={setUser} user={admin} />}  />
 					<Route path='/pets/:id'element={<PetDetail user={admin} msgAlert={msgAlert}  />} />
           <Route
             path='/sign-out'

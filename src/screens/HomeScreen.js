@@ -26,7 +26,7 @@ const HomeScreen = (props) => {
 	}
 	return (
 		<>
-		<DatePicker />
+		
 			<div className="section white">
 				<div className="row container">
 					<h2 className="header">
