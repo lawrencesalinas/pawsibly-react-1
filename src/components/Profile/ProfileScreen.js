@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
-import { getUsersAndPets } from "../../api/pets";
+import { getUsersPets } from "../../api/pets";
 import ProfilePets from "./ProfilePets";
 import CreatePet from './CreatePet'
 
 
-
-export default function ProfileScreen(props){
+export default function ProfileScreen(props) {
   // user data and user pet is called here
+
   const [userPets, setUserPets] = useState([]);
   const [userData, setUserData] = useState([]);
 
   useEffect(() => {
-    getUsersAndPets(props.user)
+    getUsersPets(props.user)
       .then((user) => {
-        console.log('this is profile',user);
+        console.log('this is profile', user);
         let userInfo = user.data.user;
         let userPet = user.data.user.pets_owned;
         setUserPets(userPet);
@@ -24,16 +24,12 @@ export default function ProfileScreen(props){
 
   return (
     <div>
-  
-      <h1>I am the user</h1>
-      <h1>{userData.email}</h1>
-      <h2>{userData.namer}</h2>
+      <h1>Hello, {userData.first_name}</h1>
 
-      <h1>List of owner pet</h1>
-      <ProfilePets myPets={userPets} />
+      <h1>My pets</h1>
       <h1>add a pet</h1>
-      <CreatePet user={props.user}/>
- 
+      <CreatePet user={props.user} />
+
     </div>
   );
 };

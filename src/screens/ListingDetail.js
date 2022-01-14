@@ -51,6 +51,7 @@ export default function ListingDetail(props) {
         <div>
             <h2>{singleSitter.first_name}</h2>
             <h2>{singleSitter.last_name}</h2>
+            <h2>{singleSitter.description}</h2>
             <p>{singleSitter.numReviews}</p>
             <p>{singleSitter.rating}</p>
             <p>{singleSitter.pricing}</p>

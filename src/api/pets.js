@@ -1,8 +1,7 @@
 import apiUrl from '../apiConfig'
 import axios from 'axios'
 
-
-export const getUsersAndPets = (user) => {
+export const getUsersPets = (user) => {
 
     return axios({
         method: 'GET',
