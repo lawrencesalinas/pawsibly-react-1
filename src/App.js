@@ -14,6 +14,8 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import axios from 'axios'
+import PetDetail from './components/Profile/PetDetail'
+import ProfilePets from './components/Profile/ProfilePets'
 
 
 
@@ -22,8 +24,7 @@ const App = () => {
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
   const [allUsers, setAllUsers] = useState([])
-
-
+  const admin = {id: 1, email: 'wally@wally.com', token: '5a624c6049e5c5a329a3af56963774a9f9c630dd'}
   console.log('user in app', user)
   console.log('message alerts', msgAlerts)
   const clearUser = () => {
@@ -46,31 +47,31 @@ const App = () => {
 		})
 	}
 
-	useEffect(() =>{
-		console.log('getting all users')
-		getUsers()
-	}, [])
+	// useEffect(() =>{
+	// 	console.log('getting all users')
+	// 	getUsers()
+	// }, [])
 
-	const getUsers = () =>{
-		axios({
-			url: `http://localhost:8000/users`,
-			method: 'GET',
-		})
-		.then(foundUsers=>{
-			// console.log('finding users', foundUsers)
-			setAllUsers(foundUsers.data.user)
-			console.log('all users:', foundUsers)
-		})
-		.catch(err =>{
-			console.log(err)
-		})
-	}
+	// const getUsers = () =>{
+	// 	axios({
+			
+	// 		url: `http://localhost:8000/users/1`,
+	// 		method: 'GET',
+	// 	})
+	// 	.then(foundUsers=>{
+	// 		// console.log('finding users', foundUsers)
+	// 		setAllUsers(foundUsers.data.user)
+	// 		console.log('all users:', foundUsers)
+	// 	})
+	// 	.catch(err =>{
+	// 		console.log(err)
+	// 	})
+	// }
 
 
 
 
 	
-
 
 		return (
 			<Fragment>
@@ -79,11 +80,11 @@ const App = () => {
 				
 				<Routes>
 					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allUsers={allUsers} user={user} />} />
-					<Route path='/profile' element={<ProfileScreen  user={user}    />} />
+					<Route path='/profile' element={<ProfileScreen  user={admin}    />} />
 					<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />}/>
 					<Route path='/sign-in'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
-					<Route path='/pets'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
-					{/* <Route path='/pets/:id 'element={<PetScreen msgAlert={msgAlert} setUser={setUser} />}/> */}
+					<Route path='/pets'element={<ProfileScreen msgAlert={msgAlert} setUser={setUser} user={admin} />}  />
+					<Route path='/pets/:id'element={<PetDetail user={admin} msgAlert={msgAlert}  />} />
           <Route
             path='/sign-out'
             element={
