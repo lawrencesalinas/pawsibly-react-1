@@ -1,33 +1,32 @@
 import React, { useState } from "react"
 import AllListings from './AllListings'
-import List from "./List"
 import { Parallax } from "react-materialize"
+import DatePicker from "../components/DatePicker"
 
 
 
 const HomeScreen = (props) => {
-	console.log('props in home', props)
+	console.log('props in home for sitters', props)
 
 	const [searchResults, setSearchResults] = useState([])
 
-	const searchItems = (e)=> {
+	const searchItems = (e) => {
 		e.preventDefault()
 		// console.log('zipcode', e.target.zipcode.value)
 		let search = e.target.zipcode.value
-		// console.log('user props', props.allUsers)
+		console.log('sitter props', props.allSitters)
 
-	const filteredListings = props.allUsers.filter((u) =>{
+	const filteredListings = props.allSitters.filter((u) =>{
 		
 			return(u.zipcode.toString().includes(search.toString()))
 	})
 	 setSearchResults(filteredListings)
-	// console.log('user search results', filteredListings)
+	console.log('sitters search results', filteredListings)
 
 	}
 	return (
-		
-    		<>
-
+		<>
+		<DatePicker />
 			<div className="section white">
 				<div className="row container">
 					<h2 className="header">
@@ -36,9 +35,9 @@ const HomeScreen = (props) => {
 					<form onSubmit={searchItems}>
 						<label>location</label>
 						<input type="number" name="zipcode" id="zipcode" />
-
 						<input type="submit" />
 					</form>
+					<AllListings allSitters={searchResults} />
 				</div>
 			</div>
 			<div>
@@ -89,16 +88,18 @@ const HomeScreen = (props) => {
 					</div>
 				</div>
 			</footer>
+<<<<<<< HEAD
 			<h2>Search for Sitters</h2>
 			<form onSubmit={searchItems}>
 				<label>location</label>
 				<input type="number" name="zipcode" id="zipcode" />
 				<input type="submit"/>
             </form>
-		<AllListings allUsers={searchResults} />
+			<AllListings allSitters={searchResults} />
 		{/* <List allUsers={searchResults} /> */}
+=======
+>>>>>>> 03cddc929fcabad0d9ca0011155a6b9b870d94f7
 		</>
-
 	)
 }
 

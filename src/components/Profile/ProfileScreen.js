@@ -14,7 +14,7 @@ export default function ProfileScreen(props){
   useEffect(() => {
     getUsersAndPets(props.user)
       .then((user) => {
-        console.log(user);
+        console.log('this is profile',user);
         let userInfo = user.data.user;
         let userPet = user.data.user.pets_owned;
         setUserPets(userPet);
