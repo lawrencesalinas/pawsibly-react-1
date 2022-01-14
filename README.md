@@ -23,6 +23,19 @@ ___
 * PostgresQL
 * Materialize
 
+## Wireframes
+---
+![Wireframes](public/pawsibly_wireframe.png)
+
+## Moodboard
+---
+![Moodboard](public/pawsibly_moodboard.png)
+
+## Collaboration and Management
+---
+![Trello](public/pawsibly_trello.png)
+
+
 ## User Stories
 ---
 As a user, I want to...<br>
@@ -48,3 +61,7 @@ ___
 ## Entity Relationship Diagram
 ___
 
+![ERD](public/pawsibly_erd.png)
+
+## Installation
+---
