@@ -19,6 +19,7 @@ import ProfilePets from './components/Profile/ProfilePets'
 import AllListings from './screens/AllListings'
 import ListingDetail from './screens/ListingDetail'
 import CreateBooking from './screens/CreateBooking'
+import Review from './components/Review'
 
 
 const App = () => {
@@ -87,7 +88,6 @@ const App = () => {
 				<Route path='/' element={<HomeScreen msgAlert={msgAlert} allSitters={allSitters} user={user} />} />
 				<Route path='/sitterlistings' element={<AllListings allSitters={allSitters} />} />
 				<Route path='/sitterlisting/:id' element={<ListingDetail allSitters={allSitters} user={user} />} />
-				{/* <Route path='/sitterlisting/:id/review' element={<Review allSitters={allsitters} user={user} />} /> */}
 				<Route path='/createbooking' element={<CreateBooking allSitters={allSitters} user={user} />} />
 				<Route path='/profile' element={<ProfileScreen user={user} />} />
 				<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />} />
