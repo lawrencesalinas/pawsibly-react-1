@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import AllListings from './AllListings'
 import { Parallax } from "react-materialize"
-import DatePicker from "../components/DatePicker"
-
 
 
 const HomeScreen = (props) => {
@@ -26,7 +24,11 @@ const HomeScreen = (props) => {
 	}
 	return (
 		<>
+<<<<<<< HEAD
 		
+=======
+		{/* <DatePicker /> */}
+>>>>>>> refs/remotes/origin/main
 			<div className="section white">
 				<div className="row container">
 					<h2 className="header">
