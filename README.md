@@ -1,7 +1,9 @@
 # Pawsibly
 ### https//pawsibly.herokuapp.com
 
-Finding someone to look after your pet can be challenging.<br>
+Finding someone to look after your pet can be challenging. Search for a local pet sitter with this app. <br>
+___
+![Screenshot](public/pawsibly_screenshot.png)
 ___
 ## Technical Requirements
 * Use Django, Flask, or Express
@@ -51,11 +53,11 @@ ___
 
 | Method | Path | Purpose |
 | ------ | -------------- | -------------------------------- |
-| GET | `/allsitters` | display a list of sitters |
-| GET | `/sitter/id` | display sitter information |
+| GET | `/profile` | display profile page |
+| GET | `/sitterlisting/id` | display sitter information |
 | POST | `/booking` | set up a booking |
-| PUT | `/booking/id` | edit a booking |
-| DELETE | `/booking/id` | cancel a booking |
+| PUT | `/pets/id` | edit a pet |
+| DELETE | `/profile` | delete a pet |
 | POST | `/booking/id/review` | create a review |
 
 ## Entity Relationship Diagram
@@ -65,3 +67,9 @@ ___
 
 ## Installation
 ---
+1. Fork and clone this [repository](https://github.com/kellylarrea/pawsibly-django) then run the following command in your terminal
+    * ```python manage.py runserver``` to start the server...
+2. Once the server is up and running, fork and clone this repository and run the following commands
+    * ```npm install``` to install dependencies
+    *  ```npm start``` to launch the app in your browser
+
