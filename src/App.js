@@ -93,7 +93,7 @@ const App = () => {
 				<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/sign-in' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/pets' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
-				{/* <Route path='/pets/:id 'element={<PetScreen msgAlert={msgAlert} setUser={setUser} />}/> */}
+				<Route path='/pets/:id'element={<PetDetail msgAlert={msgAlert} user={user} />}/>
 				<Route
 					path='/sign-out'
 					element={

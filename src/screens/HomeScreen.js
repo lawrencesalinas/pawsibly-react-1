@@ -24,11 +24,6 @@ const HomeScreen = (props) => {
 	}
 	return (
 		<>
-<<<<<<< HEAD
-		
-=======
-		{/* <DatePicker /> */}
->>>>>>> refs/remotes/origin/main
 			<div className="section white">
 				<div className="row container">
 					<h2 className="header">
