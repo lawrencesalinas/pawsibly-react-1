@@ -1,8 +1,6 @@
 import React, { useState } from "react"
 import AllListings from './AllListings'
 import { Parallax } from "react-materialize"
-import DatePicker from "../components/DatePicker"
-
 
 
 const HomeScreen = (props) => {
@@ -26,7 +24,7 @@ const HomeScreen = (props) => {
 	}
 	return (
 		<>
-		<DatePicker />
+		{/* <DatePicker /> */}
 			<div className="section white">
 				<div className="row container">
 					<h2 className="header">
@@ -88,7 +86,6 @@ const HomeScreen = (props) => {
 					</div>
 				</div>
 			</footer>
-<<<<<<< HEAD
 			<h2>Search for Sitters</h2>
 			<form onSubmit={searchItems}>
 				<label>location</label>
@@ -97,8 +94,6 @@ const HomeScreen = (props) => {
             </form>
 			<AllListings allSitters={searchResults} />
 		{/* <List allUsers={searchResults} /> */}
-=======
->>>>>>> 03cddc929fcabad0d9ca0011155a6b9b870d94f7
 		</>
 	)
 }

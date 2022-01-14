@@ -69,12 +69,7 @@ const App = () => {
 		})
 	}
 
-
-
-
 	
-
-
 		return (
 			<Fragment>
 				
@@ -82,9 +77,9 @@ const App = () => {
 				
 				<Routes>
 					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allSitters={allSitters} user={user} />} />
-					<Route path='/sitterlistings' element={<AllListings allSitters={allSitters}  />} />
+					<Route path='/sitterlistings' element={<AllListings allSitters={allSitters} user={user} />} />
 					<Route path='/sitterlisting/:id' element={<ListingDetail allSitters={allSitters}  user={user}/>} />
-					<Route path='/createbooking' element={<CreateBooking allSitters={allSitters}  user={user}/>} />
+					<Route path='/createbooking/:id' element={<CreateBooking user={user}/>} />
 					<Route path='/profile' element={<ProfileScreen  user={user}    />} />
 					<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />}/>
 					<Route path='/sign-in'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
