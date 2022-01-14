@@ -21,7 +21,7 @@ export default function List(props) {
                     m={6}
                     s={12}
                 >
-                    <div class="col s5" >
+                    <div class="col s5" class="center">
                         <Card
                             actions={[
                                 <a key="1" href="#" class="black-text">Schedule a booking</a>,

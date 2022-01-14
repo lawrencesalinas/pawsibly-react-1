@@ -1,40 +1,40 @@
-import { useState, useEffect} from 'react'
-import { useParams  } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import axios from 'axios'
 
 
 export default function PetDetail(props) {
-    console.log('user',props.user);
+    console.log('user', props.user);
 
-const [pet,setPet] = useState([])
-const [newPetName, setNewPetName] = useState('')
-const [petId, setPetId] = useState()
-const {id} = useParams()
+    const [pet, setPet] = useState([])
+    const [newPetName, setNewPetName] = useState('')
+    const [petId, setPetId] = useState()
+    const { id } = useParams()
 
-    useEffect(() =>{
-		console.log('getting all users')
-		getUsers()
-	}, [])
+    useEffect(() => {
+        console.log('getting all users')
+        getUsers()
+    }, [])
 
-	const getUsers = () =>{
-		axios({
-			url: `http://localhost:8000/pets/${id}`,
-			method: 'GET',
-            headers:{
+    const getUsers = () => {
+        axios({
+            url: `http://localhost:8000/pets/${id}`,
+            method: 'GET',
+            headers: {
                 'Authorization': `Token ${props.user.token}`
             }
-		})
-		.then(foundPet=>{
-			console.log('pet', foundPet)
-			setPet(foundPet)
-            setNewPetName(foundPet?.data?.pet?.name)
-            setPetId(foundPet?.data?.pet?.id)
-			console.log('all', foundPet)
-		})
-		.catch(err =>{
-			console.log(err)
-		})
-	}
+        })
+            .then(foundPet => {
+                console.log('pet', foundPet)
+                setPet(foundPet)
+                setNewPetName(foundPet?.data?.pet?.name)
+                setPetId(foundPet?.data?.pet?.id)
+                console.log('all', foundPet)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
 
     const editPetById = id => {
@@ -47,32 +47,32 @@ const {id} = useParams()
 
         }
         axios({
-                url: `http://localhost:8000/pets/${id}`,
-                method: 'PATCH',
-                headers:{
-                    'Authorization': `Token ${props.user.token}`,
-                    'Content-Type': 'application/json',
-                },
-                body:JSON.stringifynewData 
-            })
-            .then(foundPet=>{
+            url: `http://localhost:8000/pets/${id}`,
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Token ${props.user.token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringifynewData
+        })
+            .then(foundPet => {
                 console.log('pet edited')
-          props.setTrigger(x=>!x)
+                props.setTrigger(x => !x)
             })
-            .catch(err =>{
+            .catch(err => {
                 console.log(err)
             })
-      }
+    }
 
 
-      //<pre>{JSON.stringify(pet, null,2)}</pre> 
+    //<pre>{JSON.stringify(pet, null,2)}</pre> 
     return (
         <div>
 
             <h2>Pet Details</h2>
             <p>{pet && pet?.data?.pet?.pet_owner}</p>
-            <input value={newPetName} onChange={e=>setNewPetName(e.target.value)} />
-            <button onClick={()=> editPetById(petId)}>Update {petId}</button>
+            <input value={newPetName} onChange={e => setNewPetName(e.target.value)} />
+            <button onClick={() => editPetById(petId)}>Update {petId}</button>
 
         </div>
     )
