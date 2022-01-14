@@ -4,15 +4,8 @@ import { Link } from "react-router-dom";
 import PetDetail from "./PetDetail";
 
 export default function ProfilePets(props) {
-
-    const myPets = props.myPets.map((pet) => {
-        return (
-            <div>
-                <Link key={pet.id} to={`/pets/${pet.id}`}>{pet.name}</Link>
-            </div>
-        )
-    })
-
+//   console.log("hello", props.myPets);
+  const listOfPets = props.myPets.map((pet) => {
     return (
       
         <Link key ={pet.id} to={`/pets/${pet.id}`}>{pet.name}</Link>
