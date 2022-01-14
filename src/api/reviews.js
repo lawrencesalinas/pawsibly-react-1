@@ -8,3 +8,15 @@ export const getReviews = (sitterId) => {
     })
 }
 
+export const postReview = (user, sitterId, value) => {
+    return axios({
+        method: 'POST',
+        url: `${apiUrl}/${sitterId}/review`,
+        headers: {
+            Authorization: `Token token=${user.token}`
+        },
+        data: {
+            review: value
+        }
+    })
+}
