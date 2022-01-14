@@ -2,65 +2,53 @@
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import apiUrl from '../../apiConfig'
-import { useState, useEffect } from 'react'
+import { useState, useEffect }  from 'react'
+import { createPets } from '../../api/pets'
 
-// const [newPet, setNewPet] = useState([])
 
-export default function petForm(props) {
-  console.log("CRESTE", props.user);
-  const createPetForm = (e) => {
+
+export default function PetForm(props){
+  // console.log('I AM USER',props);
+  const [name, setName] = useState('')
+  const [isPending, setIsPending] = useState(true) 
+
+  const createPet = (e) => {
     e.preventDefault()
-    console.log('pet name', e.target.name.value);
-    let searchBar = e.target.name.value
-    console.log(searchBar);
-
-
-    //    axios({
-    // 	url:  `http://localhost:8000/users`,
-    // 	method: 'POST',
-    //     headers: {
-    // 		Authorization: `Token ${props.user.token}`,
-    // 	},
-    // 	 pets: {
-    // 			name: e.target.name.value,         
-    //             pet_owner:props.user.id
-    // 		},
-
-    // })
-    // .then(res => {
-    //     console.log('server response:', res)
-    //     // addCreated(res.data.item._id)
-    // })
-    let axios = require('axios');
-    let data = JSON.stringify({
-      "pet": {
-        name: e.target.name.value,
-        pet_owner: props.user
-      }
-    });
-
-    let config = {
+    setIsPending(true)
+    const pet = { name }
+   
+    fetch('http://localhost:8000/pets', {
       method: 'POST',
-      url: `http://localhost:8000/pets`,
-      headers: {
-        'Authorization': `Token ${props.user.token}`,
+      headers: { 
         'Content-Type': 'application/json',
-      },
-      data: data
-    };
-    axios(config)
-      .then(function (response) {
-        console.log(JSON.stringify(response.data));
-      })
+        'Authorization': `Token ${props.user.token}`},
+      body: JSON.stringify(pet)
+    }).then(() => {
+      console.log('new pet added');
+      setIsPending(false)
+      props.setTrigger(x=>!x)
+      // useNavigate(-1)
+    }).catch(error =>{
+      console.log(error);
+      setIsPending(false)
+    })
+  
   }
-  return (
-    <div>
-      <form onSubmit={createPetForm} >
-        <label for="name" />
-        <input type='text' name='name' id="name"   ></input>
-        <input type="submit"></input>
 
-      </form>
+return(
+    <div>
+  <form onSubmit ={createPet}>
+      <label>Add your pet</label>
+        <input type = 'text' 
+        required
+        value={name} name = 'name' id = 'name'
+        onChange={(e) => setName(e.target.value)}
+       />
+       {isPending && <button>Create Pet</button> }
+       {!isPending && <button disabled>Creating Pet...</button> }
+
+</form>
+       <p>{name}</p>
     </div>
   )
 

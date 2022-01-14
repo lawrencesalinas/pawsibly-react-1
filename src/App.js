@@ -15,6 +15,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import axios from 'axios'
 import PetDetail from './components/Profile/PetDetail'
+import ProfilePets from './components/Profile/ProfilePets'
 import AllListings from './screens/AllListings'
 import ListingDetail from './screens/ListingDetail'
 import CreateBooking from './screens/CreateBooking'
@@ -22,9 +23,11 @@ import CreateBooking from './screens/CreateBooking'
 
 const App = () => {
 
-	const [user, setUser] = useState(null)
-	const [msgAlerts, setMsgAlerts] = useState([])
-	const [allSitters, setAllSitters] = useState([])
+  const [user, setUser] = useState(null)
+  const [msgAlerts, setMsgAlerts] = useState([])
+  const [allUsers, setAllUsers] = useState([])
+  const admin = {id: 1, email: 'wally@wally.com'}
+  const [allSitters, setAllSitters] = useState([])
 
 
 	console.log('user in app', user)

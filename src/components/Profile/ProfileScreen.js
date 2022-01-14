@@ -4,12 +4,14 @@ import ProfilePets from "./ProfilePets";
 import CreatePet from './CreatePet'
 
 
-export default function ProfileScreen(props) {
+
+export default function ProfileScreen(props){
+  console.log('user here', props);
   // user data and user pet is called here
 
   const [userPets, setUserPets] = useState([]);
   const [userData, setUserData] = useState([]);
-
+  const [trigger,setTrigger] = useState(false)
   useEffect(() => {
     getUsersPets(props.user)
       .then((user) => {
@@ -20,16 +22,17 @@ export default function ProfileScreen(props) {
         setUserData(userInfo);
       })
       .catch((err) => console.error(err));
-  }, []);
+  }, [trigger]);
 
   return (
     <div>
       <h1>Hello, {userData.first_name}</h1>
 
-      <h1>My pets</h1>
+      <h1>List of owner pet</h1>
+      <ProfilePets myPets={userPets} user={props.user} setTrigger={setTrigger}/>
       <h1>add a pet</h1>
-      <CreatePet user={props.user} />
-
+      <CreatePet   user = {props.user} setTrigger={setTrigger}/>
+ 
     </div>
   );
 };

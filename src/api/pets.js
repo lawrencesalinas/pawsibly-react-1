@@ -24,7 +24,7 @@ export const getSinglePet = (user,id) => {
 }
 
 
-export const createPet = (user) => {
+export const createPets = (user) => {
     return axios({
         method: 'POST',
         url: apiUrl + '/pets',
