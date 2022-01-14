@@ -26,7 +26,7 @@ export default function ProfileScreen(props) {
 
   return (
     <div class="center" style={{'marginTop':'50px'}}>
-      <h3 class="flow-text">Hello, {userData.first_name}!</h3>
+      <h3 class="flow-text">Hello, {userData.last_name}!</h3>
       <ProfilePets myPets={userPets} user={props.user} setTrigger={setTrigger} />
       <CreatePet user={props.user} setTrigger={setTrigger} />
     </div>

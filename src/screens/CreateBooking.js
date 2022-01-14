@@ -55,14 +55,14 @@ export default function CreateBooking (props) {
                         <div class="card-content white-text">
                             <span class="card-title">create a booking</span>
                             {/* <form onSubmit={createdBooking}> */}
-                            <label class="black-text" htmlFor='name'>Sitter Name:</label>
+                            {/* <label class="black-text" htmlFor='name'>Sitter Name:</label>
                             <input type='text' name='name' id='name'
                                 value={sitterName}
                                 onChange={e => setSitterName(e.target.value)} />
                             <label class="black-text" htmlFor='name'>User Name:</label>
                             <input type='text' name='id' id='id'
                                 value={user.email}
-                                onChange={e => setUser(e.target.value)} />
+                                onChange={e => setUser(e.target.value)} /> */}
                             <span class="card-title">select dates</span>
                 
                             <DateRangePicker
