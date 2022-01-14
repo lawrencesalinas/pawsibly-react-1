@@ -19,7 +19,8 @@ import ProfilePets from './components/Profile/ProfilePets'
 import AllListings from './screens/AllListings'
 import ListingDetail from './screens/ListingDetail'
 import CreateBooking from './screens/CreateBooking'
-
+import CreatePost from './components/Profile/SitterForm'
+import SitterForm from './components/Profile/SitterForm'
 
 const App = () => {
 
@@ -94,6 +95,7 @@ const App = () => {
 				<Route path='/sign-in' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/pets' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/pets/:id'element={<PetDetail msgAlert={msgAlert} user={user} />}/>
+				<Route path='/post'element={<SitterForm msgAlert={msgAlert} user={user} />}/>
 				<Route
 					path='/sign-out'
 					element={
