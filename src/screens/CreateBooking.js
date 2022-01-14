@@ -1,43 +1,38 @@
-import {useState, useEffect} from "react";
-import axios from "axios";
-import ListingDetail from "./ListingDetail";
-import { useParams } from "react-router-dom";
-// import DatePicker from "../components/DatePicker";
+import { useState } from "react";
 import DateRangePicker from '@wojtekmaj/react-daterange-picker/dist/entry.nostyle'
 
-export default function CreateBooking (props) {
+export default function CreateBooking(props) {
     console.log('this is props for sitter booking', props)
 
-    const[booking, setBooking] = useState([])
-    const[createdBooking, setCreatedBooking] = useState([])
-    const[user, setUser] = useState(props.user)
-    const[sitterName, setSitterName] = useState(props.singleSitter.first_name)
-    const[date, setDate] = useState([])
-    const newParams = useParams()
+    const [user, setUser] = useState(props.user.id)
+    const [sitterName, setSitterName] = useState(props.singleSitter.id)
+    const [date, setDate] = useState([])
     const now = new Date();
 
     const yesterdayBegin = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
     const todayEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999)
 
     const [value, onChange] = useState([yesterdayBegin, todayEnd]);
-    // console.log('this is the', yesterdayBegin)
-    // console.log('this is the', todayEnd)
 
     const createBooking = (e) => {
         e.preventDefault()
-        // console.log('form', e.target.name.value)
-        // console.log('form date', e.target.date.value)
-        axios({
-            url: `http://localhost:8000/bookings`,
+        const booking = { user, start_date: value[0], end_date: value[1], sitterName }
+
+        console.log('booking date', date, user, sitterName)
+
+        fetch(`http://localhost:8000/bookings`, {
             method: 'POST',
             headers: {
+                'Content-Type': 'application/json',
                 'Authorization': `Token ${props.user.token}`
             },
-            body:{sitter: props.singleSitter.id,
-            start_date:date[0], end_date:date[1]}
-        
+            body: JSON.stringify(booking)
+        }).then(createdBooking => {
+            console.log('new booking added', createdBooking);
+        }).catch(error => {
+            console.log(error);
         })
-      
+
     }
 
     const handleDate = (data) => {
@@ -45,24 +40,18 @@ export default function CreateBooking (props) {
         setDate(data)
     }
 
-    // useEffect(() =>{
-    //     console.log('create booking')
-    //     createBooking()
-    // }, [])
-
-    return(
+    return (
         <div>
-             <h1>Create a Booking</h1>
-            {/* <form onSubmit={createdBooking}> */}
-                <label htmlFor ='name'>Sitter Name:</label>
-                <input type='text' name='name' id='name' 
-                  value={sitterName}
-                  onChange={e=>setSitterName(e.target.value)}/>
-                <label htmlFor ='name'>User Name:</label>
-                <input type='text' name='id' id='id' 
-                  value={user.email}
-                  onChange={e=>setUser(e.target.value)}/>
-                  <h3>Select Dates:</h3>
+            <h1>Create a Booking</h1>
+            <label htmlFor='name'>Sitter Name:</label>
+            <input type='text' name='name' id='name'
+                value={sitterName}
+                onChange={e => setSitterName(e.target.value)} />
+            <label htmlFor='name'>User Name:</label>
+            <input type='text' name='id' id='id'
+                value={user.id}
+                onChange={e => setUser(e.target.value)} />
+            <h3>Select Dates:</h3>
             <DateRangePicker
                 name='date'
                 id='date'
@@ -70,9 +59,8 @@ export default function CreateBooking (props) {
                 value={value}
             />
             <button onClick={createBooking}>created booking</button>
-            {/* </form> */}
-            
+
         </div>
-        
+
     )
 }
