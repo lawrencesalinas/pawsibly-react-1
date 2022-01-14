@@ -15,6 +15,7 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import axios from 'axios'
 import PetDetail from './components/Profile/PetDetail'
+import ProfilePets from './components/Profile/ProfilePets'
 import AllListings from './screens/AllListings'
 import ListingDetail from './screens/ListingDetail'
 import CreateBooking from './screens/CreateBooking'
@@ -24,6 +25,8 @@ const App = () => {
 
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
+  const [allUsers, setAllUsers] = useState([])
+  const admin = {id: 1, email: 'wally@wally.com'}
   const [allSitters, setAllSitters] = useState([])
 
 
@@ -49,6 +52,7 @@ const App = () => {
 		})
 	}
 
+
 	useEffect(() =>{
 		console.log('getting all sitters')
 		getSitters()
@@ -68,8 +72,8 @@ const App = () => {
 			console.log(err)
 		})
 	}
-
 	
+
 		return (
 			<Fragment>
 				
@@ -79,12 +83,12 @@ const App = () => {
 					<Route path='/' element={<HomeScreen msgAlert={msgAlert} allSitters={allSitters} user={user} />} />
 					<Route path='/sitterlistings' element={<AllListings allSitters={allSitters} user={user} />} />
 					<Route path='/sitterlisting/:id' element={<ListingDetail allSitters={allSitters}  user={user}/>} />
-					<Route path='/createbooking/:id' element={<CreateBooking user={user}/>} />
 					<Route path='/profile' element={<ProfileScreen  user={user}    />} />
+					<Route path='/createbooking' element={<CreateBooking allSitters={allSitters}  user={user}/>} />
 					<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />}/>
 					<Route path='/sign-in'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
-					<Route path='/pets'element={<SignIn msgAlert={msgAlert} setUser={setUser} />}/>
-					{/* <Route path='/pets/:id 'element={<PetScreen msgAlert={msgAlert} setUser={setUser} />}/> */}
+					<Route path='/pets'element={<ProfileScreen msgAlert={msgAlert} setUser={setUser} user={admin} />}  />
+					<Route path='/pets/:id'element={<PetDetail user={admin} msgAlert={msgAlert}  />} />
           <Route
             path='/sign-out'
             element={
