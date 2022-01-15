@@ -18,7 +18,7 @@ export default function CreateReview(props) {
 
 
 
-    let newParam = useParams()
+    let {id}= useParams()
 
     useEffect(() => {
         console.log('getting single sitter')
@@ -27,7 +27,7 @@ export default function CreateReview(props) {
 
     const getSingleSitter = () => {
         axios({
-            url: `http://localhost:8000/sitters/${newParam.id}`,
+            url: `http://localhost:8000/sitters/${id}`,
             method: 'GET',
         })
             .then(foundSingleSitter => {
