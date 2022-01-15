@@ -9,13 +9,10 @@ import { useParams, useNavigate } from "react-router-dom"
 export default function CreateReview(props) {
     console.log('this is props for the review of sitter', props)
 
-    // const [sitterReview, setSitterReview] = useState([])
     const [user, setUser] = useState(props.user.id)
-    // const [sitterName, setSitterName] = useState([])
     const [singleSitter, setSingleSitter] = useState([])
     const [review, setReview] = useState('')
     const [rating, setRating] = useState('')
-    const [createAt, setCreatedAt] = useState('')
     const navigate = useNavigate()
 
 
@@ -41,8 +38,7 @@ export default function CreateReview(props) {
     const createReview = (e) => {
         e.preventDefault()
         const sitterReview = { user, singleSitter:singleSitter.data.sitter.id, review, rating}
-
-        // console.log('booking date', date, user, sitterName)
+    
 
         fetch(`http://localhost:8000/reviews`, {
             method: 'POST',
@@ -54,7 +50,7 @@ export default function CreateReview(props) {
         }).then(createdReview => {
             console.log('new review added', createdReview);
         })
-        .then(() => navigate('/'))
+        .then(() => navigate(`/sitterlisting/${newParam.id}`))
         .catch(error => {
             console.log(error);
         })
@@ -70,9 +66,6 @@ export default function CreateReview(props) {
             <div>
                 <TextInput id="TextInput-25" />
                 <h1>Create a Review</h1>
-                {/* <label htmlFor='name'>User Id:</label>
-                <input type='text' name='id' id='id'
-                    value={user.id}/> */}
                 <label htmlFor='name'>Review:</label>
                 <input type='text' name='review' id='review'
                     value={review}

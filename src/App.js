@@ -20,6 +20,7 @@ import AllListings from './screens/AllListings'
 import ListingDetail from './screens/ListingDetail'
 import CreateBooking from './screens/CreateBooking'
 import Review from './screens/Review'
+import MyBookings from './screens/MyBookings'
 
 
 
@@ -91,6 +92,7 @@ const App = () => {
 				<Route path='/sitterlisting/:id' element={<ListingDetail allSitters={allSitters} user={user} />} />
 				<Route path='/review/:id' element={<Review allSitters={allSitters} user={user} />} />
 				<Route path='/createbooking' element={<CreateBooking allSitters={allSitters} user={user} />} />
+				<Route path='/mybookings/:id' element={<MyBookings user={user} />} />
 				<Route path='/profile' element={<ProfileScreen user={user} />} />
 				<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/sign-in' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />

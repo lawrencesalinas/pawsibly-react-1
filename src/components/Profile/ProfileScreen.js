@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getUsersPets } from "../../api/pets";
 import ProfilePets from "./ProfilePets";
 import CreatePet from './CreatePet'
+import { Link } from "react-router-dom";
 
 
 
@@ -29,6 +30,8 @@ export default function ProfileScreen(props) {
       <h3 class="flow-text">Hello, {userData.last_name}!</h3>
       <ProfilePets myPets={userPets} user={props.user} setTrigger={setTrigger} />
       <CreatePet user={props.user} setTrigger={setTrigger} />
+
+      <Link to={`/mybookings/${props.user.id}`}>My Bookings</Link>
     </div>
   );
 };
