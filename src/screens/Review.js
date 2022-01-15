@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import { TextInput } from "react-materialize"
 // import ReviewForm from "./ReviewForm"
 import axios from "axios"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 
 
 
@@ -16,6 +16,7 @@ export default function CreateReview(props) {
     const [review, setReview] = useState('')
     const [rating, setRating] = useState('')
     const [createAt, setCreatedAt] = useState('')
+    const navigate = useNavigate()
 
 
 
@@ -52,7 +53,9 @@ export default function CreateReview(props) {
             body: JSON.stringify(sitterReview)
         }).then(createdReview => {
             console.log('new review added', createdReview);
-        }).catch(error => {
+        })
+        .then(() => navigate('/'))
+        .catch(error => {
             console.log(error);
         })
 

@@ -70,11 +70,7 @@ export default function CreateBooking (props) {
                                 id='date'
                                 onChange={handleDate}
                                 value={value}
-                                
-                            />
-                            <br></br>
-                            <Button onClick={createBooking}>schedule</Button>
-                                border='none'                            
+                                border='none'                            />
                             {/* <Button onClick={createBooking}>schedule</Button> */}
                             {/* </form> */}
                             <a class="btn-floating btn-large waves-effect waves-light yellow" onClick={createBooking}><i class="material-icons">add</i></a>
