@@ -49,15 +49,15 @@ export default function PetDetail(props) {
       },
       body: JSON.stringify(newData),
     })
-      .then(() => {
-        console.log("new pet added");
+    //   .then(() => {
+    //     console.log("new pet added");
 
-        props.setTrigger((x) => !x);
-        // useNavigate(-1)
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+    //     props.setTrigger((x) => !x);
+    //     // useNavigate(-1)
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   })
       .then((foundPet) => {
         console.log("pet edited", foundPet);
 

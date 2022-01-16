@@ -51,10 +51,18 @@ export default function CreateBooking (props) {
         <div class="card small">
             <div class="row center">
                 <div class="col s12 m6">
-                    <div class="card #e57373 red lighten-2">
-                        <div class="card-content white-text">
+                    {/* <div class="card"> */}
+                        <div class="card-content black-text">
                             <span class="card-title">create a booking</span>
-                            {/* <form onSubmit={createdBooking}> */}   
+                            {/* <form onSubmit={createdBooking}> */}
+                            {/* <label class="black-text" htmlFor='name'>Sitter Name:</label>
+                            <input type='text' name='name' id='name'
+                                value={sitterName}
+                                onChange={e => setSitterName(e.target.value)} />
+                            <label class="black-text" htmlFor='name'>User Name:</label>
+                            <input type='text' name='id' id='id'
+                                value={user.email}
+                                onChange={e => setUser(e.target.value)} /> */}
                             <span class="card-title">select dates</span>
                 
                             <DateRangePicker
@@ -62,13 +70,12 @@ export default function CreateBooking (props) {
                                 id='date'
                                 onChange={handleDate}
                                 value={value}
-                            />
-                            <br></br>
-                            <Button onClick={createBooking}>schedule</Button>
+                                border='none'                            />
+                            {/* <Button onClick={createBooking}>schedule</Button> */}
                             {/* </form> */}
                             <a class="btn-floating btn-large waves-effect waves-light yellow" onClick={createBooking}><i class="material-icons">add</i></a>
                         </div>
-                    </div>
+                    {/* </div> */}
                 </div>
             </div>
         </div>
