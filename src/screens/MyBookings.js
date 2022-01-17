@@ -1,45 +1,38 @@
 import {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import List from "./List";
+import BookingList from "./BookingList";
 
 export default function MyBookings (props) {
+    console.log('what are these props', props)
 
     const [userBooking, setUserBooking] = useState([])
 
     useEffect(() => {
-        getMyBookings()
+        getMyBookings(props.user)
     }, [])
 
     const id = useParams()
     
     const getMyBookings = () => {
 		axios({
-			url: `http://localhost:8000/bookings/${id.id}`,
+			url: `http://localhost:8000/bookings`,
 			method: 'GET',
             headers: {
                 'Authorization': `Token ${props.user.token}`
             },
 		})
         .then(foundBookings => {
-            console.log('this is user bookings', foundBookings.data.booking)
-            setUserBooking(foundBookings.data.booking)
+            console.log('this is user bookings', foundBookings)
+            setUserBooking(foundBookings)
         })
 
     }
 
-    const mybookings = userBooking.map((b) =>{
-        console.log('all listing b',b)
-        return <div>
-            <List userbookings={b} />
-        </div>
-    })
-
 
     return (
         <div>
-            My bookings:
-            {mybookings}
+            <BookingList  />
         </div>
     )
 }

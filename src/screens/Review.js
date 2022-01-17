@@ -40,7 +40,7 @@ export default function CreateReview(props) {
         const sitterReview = { user, singleSitter:singleSitter.data.sitter.id, review, rating}
     
 
-        fetch(`http://localhost:8000/reviews`, {
+        fetch(`http://localhost:8000/reviews/${newParam.id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
