@@ -11,8 +11,8 @@ function SitterDetailScreen() {
     async function fetchData(){
         const { data } = await axios.get(`http://localhost:8000/sitters/${id}`)
         setSitter(data)
-        console.log('sitter', sitter);
-        console.log('data',data);
+        // console.log('sitter', sitter);
+        // console.log('data',data);
     }
     fetchData()
 },[])
