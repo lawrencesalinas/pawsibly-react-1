@@ -15,29 +15,26 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import axios from 'axios'
 import PetDetail from './components/Profile/PetDetail'
-import ProfilePets from './components/Profile/ProfilePets'
 import AllListings from './screens/AllListings'
 import ListingDetail from './screens/ListingDetail'
 import CreateBooking from './screens/CreateBooking'
 import SitterForm from './components/Profile/SitterForm'
 import Review from './screens/Review'
 import MyBookings from './screens/MyBookings'
-
-
+import SitterDetailScreen from './screens/SitterDetailScreen'
 
 const App = () => {
 
   const [user, setUser] = useState(null)
   const [msgAlerts, setMsgAlerts] = useState([])
-  const [allUsers, setAllUsers] = useState([])
-  const admin = {id: 1, email: 'wally@wally.com'}
+//   const user = {id: 1, email: 'wally@wally.com', token: 'Token fba3e150684cc5a46fdc67b7cac1ae58a4cfe016'}
   const [allSitters, setAllSitters] = useState([])
 
 
-	console.log('user in app', user)
-	console.log('message alerts', msgAlerts)
+	// console.log('user in app', user)
+	// console.log('message alerts', msgAlerts)
 	const clearUser = () => {
-		console.log('clear user ran')
+		// console.log('clear user ran')
 		setUser(null)
 	}
 	const deleteAlert = (id) => {
@@ -60,7 +57,6 @@ const App = () => {
 		console.log('getting all sitters')
 		getSitters()
 	}, [])
-
 	const getSitters = () => {
 		axios({
 			url: `http://localhost:8000/sitters`,
@@ -77,22 +73,17 @@ const App = () => {
 	}
 
 
-
-
-
-
-
 	return (
 		<Fragment>
 
 			<Header user={user} />
 
 			<Routes>
-				<Route path='/' element={<HomeScreen msgAlert={msgAlert} allSitters={allSitters} user={user} />} />
-				<Route path='/sitterlistings' element={<AllListings allSitters={allSitters} />} />
-				<Route path='/sitterlisting/:id' element={<ListingDetail allSitters={allSitters} user={user} />} />
-				<Route path='/review/:id' element={<Review allSitters={allSitters} user={user} />} />
-				<Route path='/createbooking' element={<CreateBooking allSitters={allSitters} user={user} />} />
+				<Route path='/' element={<HomeScreen msgAlert={msgAlert} allSitters={allSitters}   />} />
+				<Route path='/sitterlistings' element={<AllListings allSitters={allSitters} />}  user={user}/>
+				<Route path='/sitterlisting/:id' element={<ListingDetail allSitters={allSitters} user={user}  />} />
+				<Route path='/review/:id' element={<Review allSitters={allSitters} user={user}  />} />
+				<Route path='/createbooking' element={<CreateBooking allSitters={allSitters}  />} />
 				<Route path='/mybookings/:id' element={<MyBookings user={user} />} />
 				<Route path='/profile' element={<ProfileScreen user={user} />} />
 				<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />} />
@@ -100,6 +91,8 @@ const App = () => {
 				<Route path='/pets' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/pets/:id'element={<PetDetail msgAlert={msgAlert} user={user} />}/>
 				<Route path='/post'element={<SitterForm msgAlert={msgAlert} user={user} />}/>
+				<Route path='/past/:id'element={<SitterDetailScreen msgAlert={msgAlert} user = {user} />}/>
+				<Route path='/sitterReview/:id'element={<SitterDetailScreen msgAlert={msgAlert} user = {user} />}/>
 				<Route
 					path='/sign-out'
 					element={

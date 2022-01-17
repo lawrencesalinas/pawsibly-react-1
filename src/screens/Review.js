@@ -12,7 +12,7 @@ export default function CreateReview(props) {
     const [user, setUser] = useState(props.user.id)
     const [singleSitter, setSingleSitter] = useState([])
     const [review, setReview] = useState('')
-    const [rating, setRating] = useState('')
+    const [rating, setRating] = useState(0)
     const navigate = useNavigate()
 
 
@@ -38,8 +38,6 @@ export default function CreateReview(props) {
     const createReview = (e) => {
         e.preventDefault()
         const sitterReview = { user, singleSitter:singleSitter.data.sitter.id, review, rating}
-    
-
         fetch(`http://localhost:8000/reviews`, {
             method: 'POST',
             headers: {
@@ -50,7 +48,7 @@ export default function CreateReview(props) {
         }).then(createdReview => {
             console.log('new review added', createdReview);
         })
-        .then(() => navigate(`/sitterlisting/${newParam.id}`))
+        .then(() => navigate(`/sitterlisting/${id}`))
         .catch(error => {
             console.log(error);
         })

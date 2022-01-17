@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import CreateBooking from './CreateBooking'
 import { Button, Card, CardTitle, Col, Icon, Row } from 'react-materialize'
-
+import BookingList from './BookingList'
+import SitterReview from './SitterReview'
 
 export default function ListingDetail(props) {
     console.log('sitter listing detail props', props.allSitters)
@@ -17,7 +18,6 @@ export default function ListingDetail(props) {
         console.log('getting single sitter')
         getSingleSitter()
     }, [])
-
     const getSingleSitter = () => {
         axios({
             url: `http://localhost:8000/sitters/${newParam.id}`,
@@ -41,6 +41,8 @@ export default function ListingDetail(props) {
                             <p>{singleSitter.numReviews} reviews</p>
                             <p>{singleSitter.rating} rating</p>
                             <h3>${singleSitter.pricing} per night</h3>
+                        
+                            <SitterReview/>
                             <CreateBooking singleSitter={singleSitter} user={props.user} />
                             <Link to={`/review/${singleSitter.id}`} class="btn-floating btn-large waves-effect waves-light yellow"><i class="material-icons">comment</i></Link>
                         </div>
