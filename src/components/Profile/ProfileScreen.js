@@ -32,6 +32,8 @@ export default function ProfileScreen(props) {
       <CreatePet user={props.user} setTrigger={setTrigger} />
 
       <Link to={`/mybookings/${props.user.id}`}>My Bookings</Link>
+
+      <br></br>
       <Link to={`/myreviews/${props.user.id}`}>Reviews I Posted</Link>
     </div>
   );
