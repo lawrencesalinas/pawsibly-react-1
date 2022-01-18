@@ -9,12 +9,12 @@ import { Button } from "react-materialize";
 export default function CreateBooking (props) {
     console.log('this is props for sitter booking', props)
 
-
-    const [user, setUser] = useState(props.user.id)
+    // const[createBooking, setBooking] =useState([])
+    // const [user, setUser] = useState(props.user.id)
     const [sitterName, setSitterName] = useState(props.singleSitter.id)
     const [date, setDate] = useState([])
     const now = new Date();
-    const newParam = useParams()
+    const {id} = useParams()
 
     const yesterdayBegin = new Date(now.getFullYear(), now.getMonth(), now.getDate() - 1);
     const todayEnd = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 23, 59, 59, 999)
@@ -23,9 +23,9 @@ export default function CreateBooking (props) {
 
     const createBooking = (e) => {
         e.preventDefault()
-    const booking = { user, start_date:value[0],end_date:value[1], sitterName }
+    const booking = { pet_owner:props.user.id, start_date:"2022-01-12T15:12:45Z",end_date:"2022-01-27T15:12:49Z", sitter:props.singleSitter.id}
 
-    console.log('booking date', date, user, sitterName)
+    // console.log('booking date', date, user, sitterName)
    
     fetch(`http://localhost:8000/bookings`, {
       method: 'POST',
@@ -34,7 +34,9 @@ export default function CreateBooking (props) {
         'Authorization': `Token ${props.user.token}`},
       body: JSON.stringify(booking)
     }).then(createdBooking => {
-      console.log('new booking added', createdBooking);
+      console.log('new booking added', createdBooking)
+     
+
     }).catch(error =>{
       console.log(error);
     })

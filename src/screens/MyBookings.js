@@ -1,5 +1,4 @@
 import {useState, useEffect} from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import BookingList from "./BookingList";
 
@@ -12,7 +11,6 @@ export default function MyBookings (props) {
         getMyBookings(props.user)
     }, [])
 
-    const id = useParams()
     
     const getMyBookings = () => {
 		axios({
@@ -32,7 +30,7 @@ export default function MyBookings (props) {
 
     return (
         <div>
-            <BookingList  />
+            <BookingList userBooking={userBooking}/>
         </div>
     )
 }

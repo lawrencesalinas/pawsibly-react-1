@@ -93,7 +93,7 @@ const App = () => {
 				<Route path='/sitterlisting/:id' element={<ListingDetail allSitters={allSitters} user={user} />} />
 				<Route path='/review/:id' element={<Review allSitters={allSitters} user={user} />} />
 				<Route path='/myreviews/:id' element={<UserReview  user={user} />} />
-				<Route path='/createbooking' element={<CreateBooking allSitters={allSitters} user={user} />} />
+				<Route path='/createbooking/:id' element={<CreateBooking allSitters={allSitters} user={user} />} />
 				<Route path='/mybookings/:id' element={<MyBookings user={user} />} />
 				<Route path='/profile' element={<ProfileScreen user={user} />} />
 				<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />} />

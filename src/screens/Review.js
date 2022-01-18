@@ -37,10 +37,11 @@ export default function CreateReview(props) {
 
     const createReview = (e) => {
         e.preventDefault()
-        const sitterReview = { user, singleSitter:singleSitter.data.sitter.id, review, rating}
+        const sitterReview = { pet_owner:props.user.id, sitter:singleSitter.data.sitter.id, review, rating}
+        console.log('this is sitter review', sitterReview)
     
 
-        fetch(`http://localhost:8000/reviews/${newParam.id}`, {
+        fetch(`http://localhost:8000/reviews`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
