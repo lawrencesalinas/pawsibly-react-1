@@ -8,7 +8,7 @@ export default function MyBookings (props) {
     const [userBooking, setUserBooking] = useState([])
 
     useEffect(() => {
-        getMyBookings(props.user)
+        getMyBookings()
     }, [])
 
     
@@ -21,12 +21,11 @@ export default function MyBookings (props) {
             },
 		})
         .then(foundBookings => {
-            console.log('this is user bookings', foundBookings)
-            setUserBooking(foundBookings)
+            console.log('this is user bookings', foundBookings.data.bookings)
+            setUserBooking(foundBookings.data.bookings)
         })
 
     }
-
 
     return (
         <div>
