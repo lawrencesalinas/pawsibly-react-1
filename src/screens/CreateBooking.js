@@ -9,9 +9,9 @@ import { Button } from "react-materialize";
 export default function CreateBooking (props) {
     console.log('this is props for sitter booking', props)
 
-    // const[createBooking, setBooking] =useState([])
+    const[newBooking, setBooking] =useState([])
     // const [user, setUser] = useState(props.user.id)
-    const [sitterName, setSitterName] = useState(props.singleSitter.id)
+    // const [sitterName, setSitterName] = useState(props.singleSitter.id)
     const [date, setDate] = useState([])
     const now = new Date();
     const {id} = useParams()
@@ -23,9 +23,9 @@ export default function CreateBooking (props) {
 
     const createBooking = (e) => {
         e.preventDefault()
-    const booking = { pet_owner:props.user.id, start_date:"2022-01-12T15:12:45Z",end_date:"2022-01-27T15:12:49Z", sitter:props.singleSitter.id}
+    const booking = { pet_owner:props.user.id, start_date:date[0],end_date:date[1], sitter:props.singleSitter.id}
 
-    // console.log('booking date', date, user, sitterName)
+    console.log('booking date', date)
    
     fetch(`http://localhost:8000/bookings`, {
       method: 'POST',
@@ -35,6 +35,7 @@ export default function CreateBooking (props) {
       body: JSON.stringify(booking)
     }).then(createdBooking => {
       console.log('new booking added', createdBooking)
+      setBooking(createdBooking)
      
 
     }).catch(error =>{
@@ -56,15 +57,6 @@ export default function CreateBooking (props) {
                     {/* <div class="card"> */}
                         <div class="card-content black-text">
                             <span class="card-title">create a booking</span>
-                            {/* <form onSubmit={createdBooking}> */}
-                            {/* <label class="black-text" htmlFor='name'>Sitter Name:</label>
-                            <input type='text' name='name' id='name'
-                                value={sitterName}
-                                onChange={e => setSitterName(e.target.value)} />
-                            <label class="black-text" htmlFor='name'>User Name:</label>
-                            <input type='text' name='id' id='id'
-                                value={user.email}
-                                onChange={e => setUser(e.target.value)} /> */}
                             <span class="card-title">select dates</span>
                 
                             <DateRangePicker
@@ -73,11 +65,8 @@ export default function CreateBooking (props) {
                                 onChange={handleDate}
                                 value={value}
                                 border='none'                            />
-                            {/* <Button onClick={createBooking}>schedule</Button> */}
-                            {/* </form> */}
                             <a class="btn-floating btn-large waves-effect waves-light yellow" onClick={createBooking}><i class="material-icons">add</i></a>
                         </div>
-                    {/* </div> */}
                 </div>
             </div>
         </div>

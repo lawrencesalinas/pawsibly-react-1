@@ -22,6 +22,7 @@ import CreateBooking from './screens/CreateBooking'
 import Review from './screens/Review'
 import MyBookings from './screens/MyBookings'
 import UserReview from './screens/UserReview'
+import Contact from './components/Profile/Contact'
 
 
 
@@ -96,6 +97,7 @@ const App = () => {
 				<Route path='/createbooking/:id' element={<CreateBooking allSitters={allSitters} user={user} />} />
 				<Route path='/mybookings/:id' element={<MyBookings user={user} />} />
 				<Route path='/profile' element={<ProfileScreen user={user} />} />
+				<Route path='/contact/:id' element={<Contact user={user} allSitters={allSitters}/>} />
 				<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/sign-in' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/pets' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
