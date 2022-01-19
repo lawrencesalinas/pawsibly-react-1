@@ -64,13 +64,11 @@ export default function CreateBooking (props) {
                                 value={user.email}
                                 onChange={e => setUser(e.target.value)} />
                             <span class="card-title">select dates</span>
-                
                             <DateRangePicker
                                 name='date'
                                 id='date'
                                 onChange={handleDate}
-                                value={value}
-                                border='none'                            />
+                                value={value}                        />
                             {/* <Button onClick={createBooking}>schedule</Button> */}
                             {/* </form> */}
                             <a class="btn-floating btn-large waves-effect waves-light yellow" onClick={createBooking}><i class="material-icons">add</i></a>
