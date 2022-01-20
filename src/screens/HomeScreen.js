@@ -43,7 +43,7 @@ const HomeScreen = (props) => {
 			</div>
 			<div>
 				<Parallax
-					image={<img alt="" src="/cat.jpg" />}
+					image={<img alt="" src="/cat.png" />}
 					options={{
 						responsiveThreshold: 0
 					}}
@@ -79,7 +79,7 @@ const HomeScreen = (props) => {
 					</div>
 				</div>
 				<Parallax
-					image={<img alt="" src="/dog.jpg" />}
+					image={<img alt="" src="/dog.png" />}
 					options={{
 						responsiveThreshold: 0
 					}}
