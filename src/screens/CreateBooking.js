@@ -58,13 +58,13 @@ export default function CreateBooking (props) {
                         <div class="card-content black-text">
                             <span class="card-title">create a booking</span>
                             <span class="card-title">select dates</span>
-                
                             <DateRangePicker
                                 name='date'
                                 id='date'
                                 onChange={handleDate}
-                                value={value}
-                                border='none'                            />
+                                value={value}                        />
+                            {/* <Button onClick={createBooking}>schedule</Button> */}
+                            {/* </form> */}
                             <a class="btn-floating btn-large waves-effect waves-light yellow" onClick={createBooking}><i class="material-icons">add</i></a>
                         </div>
                 </div>
