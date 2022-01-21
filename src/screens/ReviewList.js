@@ -1,13 +1,10 @@
 import React from 'react';
 
 function ReviewList(props) {
-  console.log("REV PROPS", props)
-
- 
   return <div>
  <h2> rating:{props.review.rating}</h2>
-{props.review.review}
-  </div>;
+<p>review:{props.review.review}</p>
+  </div>
 }
 
 export default ReviewList;

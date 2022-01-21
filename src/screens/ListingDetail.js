@@ -32,21 +32,10 @@ export default function ListingDetail(props) {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(`http://localhost:8000/reviews/${newParam.id}`)
-      console.log("REVIEWS", data);
       setSitterReviews(data.reviews);
     }
     fetchData();
   },[]);
-console.log('REVIEWWDDDDDDDD', sitterReviews);
-
-    
-
-
-
-
-
-  
-
   return (
     <div>
       <div class="row">
