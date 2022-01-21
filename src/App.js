@@ -21,7 +21,6 @@ import CreateBooking from './screens/CreateBooking'
 import SitterForm from './components/Profile/SitterForm'
 import Review from './screens/Review'
 import MyBookings from './screens/MyBookings'
-import SitterDetailScreen from './screens/SitterDetailScreen'
 import SitterReview from './screens/SitterReview'
 
 const App = () => {
@@ -92,8 +91,7 @@ const App = () => {
 				<Route path='/pets' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/pets/:id'element={<PetDetail msgAlert={msgAlert} user={user} />}/>
 				<Route path='/post'element={<SitterForm msgAlert={msgAlert} user={user} />}/>
-				<Route path='/past/:id'element={<SitterDetailScreen msgAlert={msgAlert} user = {user} />}/>
-				<Route path='/sitterReview/:id'element={<SitterReview msgAlert={msgAlert} user = {user} />}/>
+		
 				<Route
 					path='/sign-out'
 					element={

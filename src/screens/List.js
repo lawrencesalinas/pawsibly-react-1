@@ -25,7 +25,7 @@ export default function List(props) {
                         >
                             <ul >
                                 <li>
-                                    <Link to={`/past/${props.sitterListings.id}`} class="black-text">learn more about this sitter</Link>
+                                    <Link to={`/sitterlisting/${props.sitterListings.id}`} class="black-text">learn more about this sitter</Link>
                                 </li>
                                 <li>
                                     {props.sitterListings.rating} rating
