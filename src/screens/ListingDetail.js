@@ -33,11 +33,11 @@ export default function ListingDetail(props) {
     async function fetchData() {
       const { data } = await axios.get(`http://localhost:8000/reviews/${newParam.id}`)
       console.log("REVIEWS", data);
-      setSitterReviews(data);
+      setSitterReviews(data.reviews);
     }
     fetchData();
   },[]);
-console.log('REVIEWWDDDDDDDD', sitterReviews.reviews);
+console.log('REVIEWWDDDDDDDD', sitterReviews);
 
     
 
@@ -75,8 +75,17 @@ console.log('REVIEWWDDDDDDDD', sitterReviews.reviews);
         </div>
       </div>
 
-
- <ReviewList reviews = {sitterReviews}/>
+<h2>HELLLO</h2>
+<div>
+      {sitterReviews.map((review) => {
+                    return (
+                      <li key={review.id}>
+                          {/* pass products array to Product component */}
+                        <ReviewList review = {review} />
+                      </li>
+                    )
+                  })}
+                  </div>
     </div>
   );
 }
