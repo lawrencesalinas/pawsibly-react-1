@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { Icon } from 'react-materialize'
-
-
 
 
 export default function PetForm(props) {

@@ -35,6 +35,9 @@ const unauthenticatedOptions = (
 		<Nav.Link>
 		    <Link to='Profile' style={linkStyle}>Profile</Link>
         </Nav.Link>
+		<Nav.Link>
+		    <Link to='/sitterlisting/:id' style={linkStyle}>Profile</Link>
+        </Nav.Link>
 	</>
 )
 

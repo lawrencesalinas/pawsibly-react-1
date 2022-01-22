@@ -1,7 +1,6 @@
-import React, { useState } from "react"
-import AllListings from './AllListings'
-import { Icon, Parallax } from "react-materialize"
-
+import React, { useState } from "react";
+import AllListings from "./AllListings";
+import { Icon, Parallax } from "react-materialize";
 
 const HomeScreen = (props) => {
 	console.log('props in home for sitters', props)
@@ -73,7 +72,7 @@ const HomeScreen = (props) => {
 								<h3>3. leave a review</h3>
 
 
-							</div>
+  const [searchResults, setSearchResults] = useState([]);
 
 						</div>
 					</div>
@@ -114,4 +113,4 @@ const HomeScreen = (props) => {
 	)
 }
 
-export default HomeScreen
+export default HomeScreen;

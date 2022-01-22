@@ -12,12 +12,12 @@ export default function CreateReview(props) {
     const [user, setUser] = useState(props.user.id)
     const [singleSitter, setSingleSitter] = useState([])
     const [review, setReview] = useState('')
-    const [rating, setRating] = useState('')
+    const [rating, setRating] = useState(0)
     const navigate = useNavigate()
 
 
 
-    let newParam = useParams()
+    let {id}= useParams()
 
     useEffect(() => {
         console.log('getting single sitter')
@@ -26,7 +26,7 @@ export default function CreateReview(props) {
 
     const getSingleSitter = () => {
         axios({
-            url: `http://localhost:8000/sitters/${newParam.id}`,
+            url: `http://localhost:8000/sitters/${id}`,
             method: 'GET',
         })
             .then(foundSingleSitter => {
@@ -37,10 +37,14 @@ export default function CreateReview(props) {
 
     const createReview = (e) => {
         e.preventDefault()
+<<<<<<< HEAD
+        const sitterReview = { pet_owner:props.user.id, sitter:singleSitter.data.sitter.id, review:review, rating:rating}
+=======
         const sitterReview = { pet_owner:props.user.id, sitter:singleSitter.data.sitter.id, review, rating}
         console.log('this is sitter review', sitterReview)
     
 
+>>>>>>> refs/remotes/origin/main
         fetch(`http://localhost:8000/reviews`, {
             method: 'POST',
             headers: {
@@ -51,7 +55,7 @@ export default function CreateReview(props) {
         }).then(createdReview => {
             console.log('new review added', createdReview);
         })
-        .then(() => navigate(`/sitterlisting/${newParam.id}`))
+        .then(() => navigate(`/sitterlisting/${id}`))
         .catch(error => {
             console.log(error);
         })

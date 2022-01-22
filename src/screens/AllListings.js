@@ -12,6 +12,7 @@ export default function AllListings (props) {
     })
     return (
                 <>
+                <h1></h1>
                 {listings}
                 </>
     )
