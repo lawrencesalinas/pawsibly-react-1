@@ -4,9 +4,10 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CreateBooking from "./CreateBooking";
 import ReviewList from "./ReviewList";
-import { Button, Row, Image, Col, ListGroup } from "react-bootstrap";
+import { Button, Row, Image, Col, Card } from "react-bootstrap";
 import Rating from "../components/Rating";
 import "../css/ListingDetail.css";
+import Footer from "../components/Footer";
 
 export default function ListingDetail(props) {
   console.log("sitter listing detail props", props.allSitters);
@@ -40,70 +41,85 @@ export default function ListingDetail(props) {
     fetchData();
   }, []);
   return (
-      <div className="listingdetail" >
-    <Row>
-      <h1>
-        {singleSitter.first_name} {singleSitter.last_name}{" "}
-      </h1>
+    <div className="listingdetail">
       <Row>
-        <Col md={2}>
-          <Rating
-            value={singleSitter.rating}
-            text={`${singleSitter.numReviews} reviews`}
-            color={"#f8e825"}
-          />
-        </Col>
-        <Col md={6}>
-          <h5>
-            {singleSitter.city}, {singleSitter.zipcode}
-          </h5>
-        </Col>
-      </Row>
-      <Row>
-        <Image src="/cat.png" />
-      </Row>
-      <hr></hr>
-      <Row>
-        <Col md={8} className = 'mt-5'>
-        <h2>About</h2>
+        <h1>
+          {singleSitter.first_name} {singleSitter.last_name}{" "}
+        </h1>
+        <Row>
+          <Col md={2}>
+            <Rating
+              value={singleSitter.rating}
+              text={`${singleSitter.numReviews} reviews`}
+              color={"#f8e825"}
+            />
+          </Col>
+          <Col md={6}>
+            <h5>
+              {singleSitter.city}, {singleSitter.zipcode}
+            </h5>
+          </Col>
+        </Row>
+        <Row>
+          <Image src="/cat.png" />
+        </Row>
+        <hr></hr>
+        <Row>
+          <Col md={8} className="mt-5">
+            <h2>About</h2>
             {singleSitter.description}
-        </Col>
-        <Col md={4}>
-     
-          <div className="booking">
+          </Col>
+          <Col md={4}>
+            <div className="booking">
               <Row>
-                  <Col md={5}>
+                <Col md={5}>
                   <h5>${singleSitter.price} / night</h5>
-                  </Col>
-                  <Col>
+                </Col>
+                <Col>
                   <Rating
-        value={singleSitter.rating}
-        text={`${singleSitter.numReviews} reviews`}
-        color={"#f8e825"}
-      />
-                  </Col>
+                    value={singleSitter.rating}
+                    text={`${singleSitter.numReviews} reviews`}
+                    color={"#f8e825"}
+                  />
+                </Col>
               </Row>
-            <CreateBooking />
-          </div>
-        </Col>
+              <CreateBooking />
+            </div>
+          </Col>
+        </Row>
+        <hr></hr>
+        <h2>Reviews</h2>
+
+        <Row>
+          <Col md={6}>
+            <div className="sitterreviews">
+              {sitterReviews.map((review) => {
+                return (
+                  <li className="list" key={review.id}>
+                    {/* pass singleSitters array to singleSitter component */}
+                    <ReviewList review={review} />
+                  </li>
+                );
+              })}
+            </div>
+          </Col>
+          <Col md={6}>
+            <Card>
+              <div className="reviewbox">
+                <h3>Review this sitter</h3>
+                <h5>share your thought with other pet owners</h5>
+                <Link
+                  to={`/review/${singleSitter.id}`}
+                  class="btn-floating btn-large waves-effect waves-light yellow"
+                >
+                  <i class="material-icons">comment</i>
+                </Link>
+              </div>
+            </Card>
+          </Col>
+        </Row>
       </Row>
-<hr></hr>
-      <Rating
-        value={singleSitter.rating}
-        text={`${singleSitter.numReviews} reviews`}
-        color={"#f8e825"}
-      />
-      <div>
-        {sitterReviews.map((review) => {
-          return (
-            <li key={review.id}>
-              {/* pass singleSitters array to singleSitter component */}
-              <ReviewList review={review} />
-            </li>
-          );
-        })}
-      </div>
-    </Row>
+      <Footer/>
     </div>
   );
 }
