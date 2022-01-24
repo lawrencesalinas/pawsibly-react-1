@@ -4,9 +4,9 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CreateBooking from "./CreateBooking";
 import ReviewList from "./ReviewList";
-import { Button, Row, Image, Col, ListGroup } from 'react-bootstrap'
+import { Button, Row, Image, Col, ListGroup } from "react-bootstrap";
 import Rating from "../components/Rating";
-
+import '../css/ListingDetail.css'
 
 export default function ListingDetail(props) {
   console.log("sitter listing detail props", props.allSitters);
@@ -14,7 +14,7 @@ export default function ListingDetail(props) {
   const [singleSitter, setSingleSitter] = useState([]);
   const [sitterReviews, setSitterReviews] = useState([]);
 
-  let newParam = useParams();   
+  let newParam = useParams();
 
   useEffect(() => {
     console.log("getting single sitter");
@@ -32,28 +32,65 @@ export default function ListingDetail(props) {
 
   useEffect(() => {
     async function fetchData() {
-      const { data } = await axios.get(`http://localhost:8000/reviews/${newParam.id}`)
+      const { data } = await axios.get(
+        `http://localhost:8000/reviews/${newParam.id}`
+      );
       setSitterReviews(data.reviews);
     }
     fetchData();
-  },[]);
+  }, []);
   return (
-      <Row>
-          <Col>
-       <h1>{singleSitter.first_name} {singleSitter.last_name} </h1>
-       <Row>
-       <Rating
-
-                  value={singleSitter.rating}
-                  text={`${singleSitter.numReviews} reviews`}
-                  color={"#f8e825"}
-                />
-                <h3>{singleSitter.zipcode}</h3>
-                </Row>
+    <Row>
+        <h1>
+          {singleSitter.first_name} {singleSitter.last_name}{" "}
+        </h1>
+        <Row>
+            <Col md={4}>
+          <Rating
+            value={singleSitter.rating}
+            text={`${singleSitter.numReviews} reviews`}
+            color={"#f8e825"}
+          />
+          </Col>
+          <Col md={6}>
+          <h5>{singleSitter.city}, {singleSitter.zipcode}</h5>
+        </Col> 
+        </Row>
+<Row>
+    <Image src = "/cat.png"/>
+</Row>
+<Row>
+    <Col md={7}>
+    </Col>
+    <Col md={4}>
+<div className="booking">
+<CreateBooking/>
+</div>
 </Col>
-      </Row>
-)
-  }
+
+</Row>
+
+<Rating
+            value={singleSitter.rating}
+            text={`${singleSitter.numReviews} reviews`}
+            color={"#f8e825"}
+          />
+          <div>
+      {sitterReviews.map((review) => {
+                    return (
+                      <li key={review.id}>
+                          {/* pass singleSitters array to singleSitter component */}
+                        <ReviewList review = {review} />
+                      </li>
+                    )
+                  })}
+                  </div>
+
+
+
+    </Row>
+  );
+}
 //     <div>
 //           <div>
 //       <div class="row">
@@ -83,16 +120,7 @@ export default function ListingDetail(props) {
 //       </div>
 
 // <h2>HELLLO</h2>
-// <div>
-//       {sitterReviews.map((review) => {
-//                     return (
-//                       <li key={review.id}>
-//                           {/* pass singleSitters array to singleSitter component */}
-//                         <ReviewList review = {review} />
-//                       </li>
-//                     )
-//                   })}
-//                   </div>
+
 //     </div>
 //         </div>
 //    )
