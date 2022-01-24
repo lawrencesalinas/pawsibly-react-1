@@ -36,7 +36,7 @@ export default function ProfileScreen(props) {
       <br></br>
       <Link to={`/myreviews/${props.user.id}`}>Reviews I Posted</Link>
       <br></br>
-      <Link to={`/contact/${props.user.id}`}>Contact Seller</Link>
+      <Link to={`/contact/${props.user.id}`}>Contact Sitter</Link>
     </div>
   );
 };

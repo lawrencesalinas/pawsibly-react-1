@@ -6,7 +6,7 @@ export default function Contact (props) {
 
     return(
         <div>
-            Contact seller here:
+            Contact sitter:
         </div>
     )
 }

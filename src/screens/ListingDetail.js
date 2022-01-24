@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CreateBooking from "./CreateBooking";
-import ReviewList from "./ReviewList";
+import ReviewList from "../components/review/ReviewList";
 import { Button, Card, CardTitle, Col, Icon, Row } from "react-materialize";
 
 
@@ -64,44 +64,19 @@ export default function ListingDetail(props) {
         </div>
       </div>
 
-<h2>HELLLO</h2>
+<h4>All Reviews for {singleSitter.first_name} {singleSitter.last_name}:</h4>
 <div>
       {sitterReviews.map((review) => {
+        console.log('review listing detail', review)
                     return (
                       <li key={review.id}>
                           {/* pass products array to Product component */}
-                        <ReviewList review = {review} />
+                        <ReviewList review={review} />
                       </li>
                     )
                   })}
                   </div>
     </div>
   );
-}
-
-// <Row>
-//     <Col
-//         m={6}
-//         s={12}
-//     >
-//         <Card
-//             actions={[
-//                 <a key="1" href="#"><Link to >
-//                     <Button>Book me</Button>
-//                 </Link></a>
-//             ]}
-//             closeIcon={<Icon>close</Icon>}
-//             header={<CardTitle image="https://materializecss.com/images/sample-1.jpg">Hi, I'm {singleSitter.first_name} {singleSitter.last_name}
-//                 <p>{singleSitter.numReviews} reviews</p>
-//                 <p>{singleSitter.rating} rating</p>
-//                 <p>${singleSitter.pricing} per night</p>
-//             </CardTitle>}
-//             revealIcon={<Icon>more_vert</Icon>}
-//         >
-//             <h2>About me:</h2>
-//             <h3>{singleSitter.description}</h3>
-//         </Card>
-//     </Col>
-// </Row>
-// <CreateBooking singleSitter={singleSitter} user={props.user} />
-// <Link to={`/review/${singleSitter.id}`} class="black-text">Create a Review</Link>
+                }
+                

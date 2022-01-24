@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { TextInput } from "react-materialize"
-// import ReviewForm from "./ReviewForm"
 import axios from "axios"
 import { useParams, useNavigate } from "react-router-dom"
 
@@ -37,14 +36,10 @@ export default function CreateReview(props) {
 
     const createReview = (e) => {
         e.preventDefault()
-<<<<<<< HEAD
-        const sitterReview = { pet_owner:props.user.id, sitter:singleSitter.data.sitter.id, review:review, rating:rating}
-=======
         const sitterReview = { pet_owner:props.user.id, sitter:singleSitter.data.sitter.id, review, rating}
         console.log('this is sitter review', sitterReview)
     
 
->>>>>>> refs/remotes/origin/main
         fetch(`http://localhost:8000/reviews`, {
             method: 'POST',
             headers: {
