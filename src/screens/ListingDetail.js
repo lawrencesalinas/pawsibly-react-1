@@ -6,7 +6,7 @@ import CreateBooking from "./CreateBooking";
 import ReviewList from "./ReviewList";
 import { Button, Row, Image, Col, ListGroup } from "react-bootstrap";
 import Rating from "../components/Rating";
-import '../css/ListingDetail.css'
+import "../css/ListingDetail.css";
 
 export default function ListingDetail(props) {
   console.log("sitter listing detail props", props.allSitters);
@@ -40,55 +40,71 @@ export default function ListingDetail(props) {
     fetchData();
   }, []);
   return (
+      <div className="listingdetail" >
     <Row>
-        <h1>
-          {singleSitter.first_name} {singleSitter.last_name}{" "}
-        </h1>
-        <Row>
-            <Col md={4}>
+      <h1>
+        {singleSitter.first_name} {singleSitter.last_name}{" "}
+      </h1>
+      <Row>
+        <Col md={2}>
           <Rating
             value={singleSitter.rating}
             text={`${singleSitter.numReviews} reviews`}
             color={"#f8e825"}
           />
-          </Col>
-          <Col md={6}>
-          <h5>{singleSitter.city}, {singleSitter.zipcode}</h5>
-        </Col> 
-        </Row>
-<Row>
-    <Image src = "/cat.png"/>
-</Row>
-<Row>
-    <Col md={7}>
-    </Col>
-    <Col md={4}>
-<div className="booking">
-<CreateBooking/>
-</div>
-</Col>
-
-</Row>
-
-<Rating
-            value={singleSitter.rating}
-            text={`${singleSitter.numReviews} reviews`}
-            color={"#f8e825"}
-          />
-          <div>
-      {sitterReviews.map((review) => {
-                    return (
-                      <li key={review.id}>
-                          {/* pass singleSitters array to singleSitter component */}
-                        <ReviewList review = {review} />
-                      </li>
-                    )
-                  })}
-                  </div>
-
-
-
+        </Col>
+        <Col md={6}>
+          <h5>
+            {singleSitter.city}, {singleSitter.zipcode}
+          </h5>
+        </Col>
+      </Row>
+      <Row>
+        <Image src="/cat.png" />
+      </Row>
+      <hr></hr>
+      <Row>
+        <Col md={8} className = 'mt-5'>
+        <h2>About</h2>
+            {singleSitter.description}
+        </Col>
+        <Col md={4}>
+     
+          <div className="booking">
+              <Row>
+                  <Col md={5}>
+                  <h5>${singleSitter.price} / night</h5>
+                  </Col>
+                  <Col>
+                  <Rating
+        value={singleSitter.rating}
+        text={`${singleSitter.numReviews} reviews`}
+        color={"#f8e825"}
+      />
+                  </Col>
+              </Row>
+            <CreateBooking />
+          </div>
+        </Col>
+      </Row>
+<hr></hr>
+      <Rating
+        value={singleSitter.rating}
+        text={`${singleSitter.numReviews} reviews`}
+        color={"#f8e825"}
+      />
+      <div>
+        {sitterReviews.map((review) => {
+          return (
+            <li key={review.id}>
+              {/* pass singleSitters array to singleSitter component */}
+              <ReviewList review={review} />
+            </li>
+          );
+        })}
+      </div>
     </Row>
+    </div>
   );
 }
 //     <div>

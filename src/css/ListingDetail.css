@@ -1,5 +1,12 @@
+.listingdetail{
+ width: 80vw;
+ margin: 0 auto;
+ margin-top: 3%;
+}
+
 .booking{
     margin: 0 auto;
     justify-content: center;
     align-items: center;
+    margin-top: 12%;
 }
