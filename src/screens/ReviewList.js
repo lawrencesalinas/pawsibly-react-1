@@ -3,7 +3,6 @@ import "../css/ReviewList.css";
 import Rating from "../components/Rating";
 
 function ReviewList(props) {
-  console.log("reviews", props);
   return (
     <div className="reviewlist">
       <h4>{props.review.pet_owner.first_name}</h4>
