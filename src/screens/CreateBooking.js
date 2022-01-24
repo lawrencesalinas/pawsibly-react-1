@@ -39,8 +39,10 @@ export default function CreateBooking (props) {
 
     const handleDate = (data) => {
         console.log('date data', data)
-        setDate(data)
+        setDate(data) 
+        
     }
+
 
 
     return (
@@ -50,12 +52,14 @@ export default function CreateBooking (props) {
                         <div class="card-content black-text">
                             <span class="card-title">create a booking</span>
                             <span class="card-title">select dates</span>
-                            <DateRangePicker appearance='default' placeholder='Default' style={{ width:230}}
+                            <DateRangePicker appearance='default'
                                 name='date'
                                 id='date'
                                 onChange={handleDate}
                                 value={value}                        />
                             <a class="btn-floating btn-large waves-effect waves-light yellow" onClick={createBooking}><i class="material-icons">add</i></a>
+                        </div>
+                        <div>
                         </div>
                 </div>
             </div>
