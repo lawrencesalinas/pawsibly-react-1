@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-import ListingDetail from "./ListingDetail";
 import { useParams } from "react-router-dom";
-// import DatePicker from "../components/DatePicker";
-// import DateRangePicker from '@wojtekmaj/react-daterange-picker/dist/entry.nostyle'
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRange } from "react-date-range";
@@ -12,12 +8,9 @@ import "../css/CreateBooking.css";
 
 export default function CreateBooking(props) {
   console.log("this is props for sitter booking", props);
-
-  const [date, setDate] = useState([]);
-  const { id } = useParams();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-
+  const { id } = useParams()
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
@@ -27,18 +20,19 @@ export default function CreateBooking(props) {
   function handleDate(ranges) {
     setStartDate(ranges.selection.startDate);
     setEndDate(ranges.selection.endDate);
+    console.log(startDate);
+    console.log('end',endDate);
   }
+  
 
   const createBooking = (e) => {
     e.preventDefault();
     const booking = {
       pet_owner: props.user.id,
-      start_date: date[0],
-      end_date: date[1],
-      sitter: props.singleSitter.id,
+      start_date: startDate,
+      end_date: endDate,
+      sitter: `${id}`
     };
-
-    console.log("booking date", date);
 
     fetch(`http://localhost:8000/bookings`, {
       method: "POST",

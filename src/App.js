@@ -84,10 +84,9 @@ const App = () => {
 			<Routes>
 				<Route path='/' element={<HomeScreen msgAlert={msgAlert} allSitters={allSitters} user={user} />} />
 				<Route path='/sitterlistings' element={<AllListings allSitters={allSitters} />} />
-				<Route path='/sitterlisting/:id' element={<ListingDetail allSitters={allSitters} user={user} />} />
+				<Route path='/sitterlisting/:id' element={<ListingDetail allSitters={allSitters} user={user} />}  />
 				<Route path='/review/:id' element={<CreateReview allSitters={allSitters} user={user} />} />
-				<Route path='/myreviews/:id' element={<UserReview  user={user} />} />
-				<Route path='/createbooking/:id' element={<CreateBooking allSitters={allSitters} user={user} />} />
+				<Route path='/myreviews/:id' element={<UserReview  user={user} /> } />
 				<Route path='/mybookings/:id' element={<MyBookings user={user} />} />
 				<Route path='/profile' element={<ProfileScreen user={user} />} />
 				<Route path='/contact/:id' element={<Contact user={user} allSitters={allSitters}/>} />
