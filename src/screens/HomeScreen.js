@@ -1,10 +1,9 @@
-import React, { useState } from "react"
-import AllListings from './AllListings'
-import { Icon, Parallax } from "react-materialize"
-
+import React, { useState } from "react";
+import AllListings from "./AllListings";
+import { Icon, Parallax } from "react-materialize";
 
 const HomeScreen = (props) => {
-	// console.log('props in home for sitters', props)
+	console.log('props in home for sitters', props)
 
 	const [searchResults, setSearchResults] = useState([])
 
@@ -12,15 +11,19 @@ const HomeScreen = (props) => {
 		e.preventDefault()
 		// console.log('zipcode', e.target.zipcode.value)
 		let search = e.target.zipcode.value
-		// console.log('sitter props', props.allSitters)
+		console.log('sitter props', props.allSitters)
+
 		const filteredListings = props.allSitters.filter((u) => {
+
 			return (u.zipcode.toString().includes(search.toString()))
 		})
 		setSearchResults(filteredListings)
-		// console.log('sitters search results', filteredListings)
+		console.log('sitters search results', filteredListings)
+
 	}
 	return (
 		<>
+			<>
 			<div className="section white">
 				<div className="row container" class="center-align">
 					<h2 className="header">
@@ -40,7 +43,7 @@ const HomeScreen = (props) => {
 			</div>
 			<div>
 				<Parallax
-					image={<img alt="" src="/cat.jpg" />}
+					image={<img alt="" src="/cat.png" />}
 					options={{
 						responsiveThreshold: 0
 					}}
@@ -76,7 +79,7 @@ const HomeScreen = (props) => {
 					</div>
 				</div>
 				<Parallax
-					image={<img alt="" src="/dog.jpg" />}
+					image={<img alt="" src="/dog.png" />}
 					options={{
 						responsiveThreshold: 0
 					}}
@@ -108,7 +111,8 @@ const HomeScreen = (props) => {
 				</div>
 			</footer>
 		</>
+		</>
 	)
 }
 
-export default HomeScreen
+export default HomeScreen;
