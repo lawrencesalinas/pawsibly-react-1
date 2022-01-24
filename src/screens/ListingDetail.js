@@ -31,31 +31,39 @@ export default function ListingDetail(props) {
 
     return (
         <div>
-            <div class="row">
-                <div class="col s12 m6">
-                    <div class="card #e57373 red lighten-2">
-                        <div class="card-content white-text">
-                            <span class="card-title">Hi, I'm {singleSitter.first_name} {singleSitter.last_name}</span>
-                            <h4>About me:</h4>
-                            <h3>{singleSitter.description}</h3>
-                            <p>{singleSitter.numReviews} reviews</p>
-                            <p>{singleSitter.rating} rating</p>
-                            <h3>${singleSitter.pricing} per night</h3>
-                        
-                            <SitterReview/>
-                            <CreateBooking singleSitter={singleSitter} user={props.user} />
-                            <Link to={`/review/${singleSitter.id}`} class="btn-floating btn-large waves-effect waves-light yellow"><i class="material-icons">comment</i></Link>
-                        </div>
-                        <div class="card-action">
-                            {/* <a href="#">This is a link</a>
-                            <a href="#">This is a link</a> */}
-                        </div>
-                    </div>
-                </div>
-            </div>
+           <Link to='/' className='btn btn0ligh my-3'>
+               Go Back
+           </Link>
         </div>
     )
 }
+
+{/* <div class="row">
+<div class="col s12 m6">
+    <div class="card #e57373 red lighten-2">
+        <div class="card-content white-text">
+            <span class="card-title">Hi, I'm {singleSitter.first_name} {singleSitter.last_name}</span>
+            <h4>About me:</h4>
+            <h3>{singleSitter.description}</h3>
+            <p>{singleSitter.numReviews} reviews</p>
+            <p>{singleSitter.rating} rating</p>
+            <h3>${singleSitter.pricing} per night</h3>
+        
+            <SitterReview/>
+            <CreateBooking singleSitter={singleSitter} user={props.user} />
+            <Link to={`/review/${singleSitter.id}`} class="btn-floating btn-large waves-effect waves-light yellow"><i class="material-icons">comment</i></Link>
+        </div>
+        <div class="card-action">
+            {/* <a href="#">This is a link</a>
+            <a href="#">This is a link</a> */}
+        // </div>
+    // </div>
+// </div>
+// </div> */}
+
+
+
+
 
             // <Row>
             //     <Col
