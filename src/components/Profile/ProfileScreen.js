@@ -30,7 +30,7 @@ export default function ProfileScreen(props) {
   }, [trigger]);
 
 
-    // <ProfilePets myPets={pet} user={props.user} setTrigger={setTrigger}/>
+  
 
 
   return (
@@ -55,7 +55,7 @@ export default function ProfileScreen(props) {
     </div>
     </Col>
     <Col className="pt-5">
-    <Link  to={`/contact/${props.user.id}`}><Button  variant = 'warning'>My Pets</Button></Link>
+    <Link  to={`/pets/`}><Button  variant = 'warning'>My Pets</Button></Link>
     </Col>
     <Col >
     <i class="fas fa-paw paw fa-10x"></i>

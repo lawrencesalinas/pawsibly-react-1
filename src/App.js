@@ -93,7 +93,7 @@ const App = () => {
 				<Route path='/contact/:id' element={<Contact user={user} allSitters={allSitters}/>} />
 				<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/sign-in' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
-				<Route path='/pets' element={<PetScreen msgAlert={msgAlert} setUser={setUser} />} />
+				<Route path='/pets' element={<PetScreen msgAlert={msgAlert} user={user} />} />
 				<Route path='/pets/:id'element={<PetDetail msgAlert={msgAlert} user={user} />}/>
 				<Route path='/post'element={<SitterForm msgAlert={msgAlert} user={user} />}/>
 		

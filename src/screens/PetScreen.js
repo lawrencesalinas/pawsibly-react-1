@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { getUsersPets } from '../api/pets';
 import ProfilePets from '../components/Profile/ProfilePets';
+import CreatePets from '../components/Profile/CreatePet'
 
 function PetScreen(props) {
     const [userPets, setUserPets] = useState([]);
     const [userData, setUserData] = useState([]);
-    const [trigger, setTrigger] = useState(false)
     useEffect(() => {
       getUsersPets(props.user)
         .then((user) => {
@@ -16,11 +16,12 @@ function PetScreen(props) {
           setUserData(userInfo);
         })
         .catch((err) => console.error(err));
-    }, [trigger]);
+    }, [userPets]);
   
   return (
   <div>
-    <ProfilePets myPets={userPets} user={props.user} setTrigger={setTrigger}/>
+    <ProfilePets myPets={userPets} user={props.user} />
+    <CreatePets user={props.user}/>
 
   </div>
   )

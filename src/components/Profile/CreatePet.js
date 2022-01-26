@@ -22,7 +22,7 @@ export default function PetForm(props) {
     }).then(() => {
       console.log('new pet added');
       setIsPending(false)
-      props.setTrigger(x => !x)
+   
       // useNavigate(-1)
     }).catch(error => {
       console.log(error);
