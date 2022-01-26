@@ -22,6 +22,8 @@ import CreateReview from './components/review/Review'
 import MyBookings from './components/booking/MyBookings'
 import UserReview from './components/Profile/UserReview'
 import Contact from './components/Profile/Contact'
+import ProfilePets from './components/Profile/ProfilePets'
+import PetScreen from './screens/PetScreen'
 
 
 
@@ -91,7 +93,7 @@ const App = () => {
 				<Route path='/contact/:id' element={<Contact user={user} allSitters={allSitters}/>} />
 				<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/sign-in' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
-				<Route path='/pets' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
+				<Route path='/pets' element={<PetScreen msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/pets/:id'element={<PetDetail msgAlert={msgAlert} user={user} />}/>
 				<Route path='/post'element={<SitterForm msgAlert={msgAlert} user={user} />}/>
 		
