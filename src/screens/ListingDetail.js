@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import CreateBooking from "./CreateBooking";
 import ReviewList from "./ReviewList";
-import { Button, Row, Image, Col, Card } from "react-bootstrap";
+import { Row, Image, Col, Card } from "react-bootstrap";
 import Rating from "../components/Rating";
 import "../css/ListingDetail.css";
 import Footer from "../components/Footer";
@@ -18,9 +18,6 @@ export default function ListingDetail(props) {
   let {id} = useParams();
 
   useEffect(() => {
-    console.log("getting single sitter");
-    getSingleSitter();
-  }, []);
   const getSingleSitter = () => {
     axios({
       url: `http://localhost:8000/sitters/${id}`,
@@ -30,7 +27,8 @@ export default function ListingDetail(props) {
       setSingleSitter(foundSingleSitter.data.sitter);
     });
   };
-
+  getSingleSitter()
+}, []);
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(

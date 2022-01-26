@@ -3,6 +3,10 @@ import { getUsersPets } from "../../api/pets";
 import ProfilePets from "./ProfilePets";
 import CreatePet from './CreatePet'
 import { Link } from "react-router-dom";
+import { Row, Col, Image, Card, Button } from 'react-bootstrap'
+import './ProfileScreen.css'
+import Footer from "../Footer";
+
 
 
 
@@ -25,19 +29,41 @@ export default function ProfileScreen(props) {
       .catch((err) => console.error(err));
   }, [trigger]);
 
+
+    // <ProfilePets myPets={pet} user={props.user} setTrigger={setTrigger}/>
+
+
   return (
-    <div class="center" style={{'marginTop':'50px'}}>
+    <div className = 'profile'>
+    <Row>
+<Col md ={3}>
+<Card>
+<Image src = '/cat.png' fluid/>
+</Card>
+</Col>
+
+    <Col md={3}>
+    <div className = 'profilescreen_info' >
       <h3 class="flow-text">Hello, {userData.last_name}!</h3>
-      <ProfilePets myPets={userPets} user={props.user} setTrigger={setTrigger} />
-      <CreatePet user={props.user} setTrigger={setTrigger} />
 
-      <Link to={`/mybookings/${props.user.id}`}>My Bookings</Link>
 
-      <br></br>
-      <Link to={`/myreviews/${props.user.id}`}>Reviews I Posted</Link>
-      <br></br>
-      <Link to={`/contact/${props.user.id}`}>Contact Seller</Link>
+      <Row className='profilescreen_buttons'>
+      <Link className ='link' to={`/mybookings/${props.user.id}`}><Button  variant = 'warning'>My Bookings</Button></Link>
+      <Link className ='link' to={`/myreviews/${props.user.id}`}><Button variant = 'warning'>My Reviews</Button></Link>
+      <Link className ='link' to={`/contact/${props.user.id}`}><Button variant = 'warning'>Contact sitter</Button></Link>
+      </Row>
     </div>
+    </Col>
+    <Col className="pt-5">
+    <Link  to={`/contact/${props.user.id}`}><Button  variant = 'warning'>My Pets</Button></Link>
+    </Col>
+    <Col >
+    <i class="fas fa-paw paw fa-10x"></i>
+    </Col>
+    </Row>  
+ <Footer/>
+    </div>
+  
   );
 };
 

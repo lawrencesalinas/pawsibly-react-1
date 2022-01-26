@@ -1,12 +1,11 @@
 import axios from "axios";
 import React from "react";
 import { Link } from "react-router-dom";
-import PetDetail from "./PetDetail";
-import { Icon } from "react-materialize";
+
 
 export default function ProfilePets(props) {
     //   console.log("hello", props.myPets);
-    const listOfPets = props.myPets.map((pet) => {
+    props.myPets.map((pet) => {
         return (
 
             <Link key={pet.id} to={`/pets/${pet.id}`}>{pet.name}</Link>
@@ -21,9 +20,6 @@ export default function ProfilePets(props) {
             headers: {
                 'Authorization': `Token ${props.user.token}`
             },
-            // body:{        
-            //   name: newName
-            // }
         })
             .then(foundPet => {
                 console.log('pet deleted')

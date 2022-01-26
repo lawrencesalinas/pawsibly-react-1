@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 
 export default function PetDetail(props) {
-//   console.log("user", props.user);
+  //   console.log("user", props.user);
 
   const [pet, setPet] = useState([]);
   const [newPetName, setNewPetName] = useState("");
@@ -11,29 +11,27 @@ export default function PetDetail(props) {
   const { id } = useParams();
 
   useEffect(() => {
-    console.log("getting all users");
-    getPets();
-  }, []);
-
-  const getPets = () => {
-    axios({
-      url: `http://localhost:8000/pets/${id}`,
-      method: "GET",
-      headers: {
-        Authorization: `Token ${props.user.token}`,
-      },
-    })
-      .then((foundPet) => {
-        console.log("pet", foundPet);
-        setPet(foundPet);
-        setNewPetName(foundPet?.data?.pet?.name);
-        setPetId(foundPet?.data?.pet?.id);
-        console.log("all", foundPet);
+    const getPets = () => {
+      axios({
+        url: `http://localhost:8000/pets/${id}`,
+        method: "GET",
+        headers: {
+          Authorization: `Token ${props.user.token}`,
+        },
       })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+        .then((foundPet) => {
+          console.log("pet", foundPet);
+          setPet(foundPet);
+          setNewPetName(foundPet?.data?.pet?.name);
+          setPetId(foundPet?.data?.pet?.id);
+          console.log("all", foundPet);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
+    getPets();
+  }, [id, props.user.token]);
 
   const editPetById = (id) => {
     let newData = {
@@ -49,15 +47,15 @@ export default function PetDetail(props) {
       },
       body: JSON.stringify(newData),
     })
-    //   .then(() => {
-    //     console.log("new pet added");
+      //   .then(() => {
+      //     console.log("new pet added");
 
-    //     props.setTrigger((x) => !x);
-    //     // useNavigate(-1)
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   })
+      //     props.setTrigger((x) => !x);
+      //     // useNavigate(-1)
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   })
       .then((foundPet) => {
         console.log("pet edited", foundPet);
 

@@ -23,8 +23,7 @@ const HomeScreen = (props) => {
 
 	}
 	return (
-		<>
-			<>
+<>
 			<div className="section white">
 				<div className="row container" class="center-align">
 					<h2 className="header">
@@ -89,7 +88,8 @@ const HomeScreen = (props) => {
 			<Footer/>
 		
 		</>
-		</>
+	
+
 	)
 }
 

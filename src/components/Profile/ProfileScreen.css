@@ -1,0 +1,26 @@
+.profile{
+    width: 80vw;
+    margin: 0 auto;
+    margin-top: 3%;
+   }
+   
+.profilescreen_info{
+    margin-top: 3% ;
+    margin-left: 5%;
+    padding-bottom: 44%;
+ 
+}
+
+.profilescreen_buttons > .link{
+margin-bottom: 10%;
+}
+
+.profilescreen_buttons >button{
+background-color: yellow;
+    }
+
+.paw{
+    font-size: 200px;
+    color:lightgray;
+}
+
