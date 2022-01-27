@@ -1,9 +1,7 @@
-// import React, { Component, Fragment } from 'react'
 import React, { useState, useEffect, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
-// import AuthenticatedRoute from './components/shared/AuthenticatedRoute'
 import AutoDismissAlert from './components/shared/AutoDismissAlert/AutoDismissAlert'
 import Header from './components/shared/Header'
 import RequireAuth from './components/shared/RequireAuth'
@@ -22,7 +20,6 @@ import CreateReview from './components/review/Review'
 import MyBookings from './components/booking/MyBookings'
 import UserReview from './components/Profile/UserReview'
 import Contact from './components/Profile/Contact'
-import ProfilePets from './components/Profile/ProfilePets'
 import PetScreen from './screens/PetScreen'
 
 

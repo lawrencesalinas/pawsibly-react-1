@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { Icon } from 'react-materialize'
+import {Row,Col, Button } from 'react-bootstrap'
+import './ProfilePets.css'
 
 
 export default function PetForm(props) {
@@ -22,7 +24,6 @@ export default function PetForm(props) {
     }).then(() => {
       console.log('new pet added');
       setIsPending(false)
-   
       // useNavigate(-1)
     }).catch(error => {
       console.log(error);
@@ -33,7 +34,8 @@ export default function PetForm(props) {
 
   return (
     <div>
-      <form class="input-field col s6" onSubmit={createPet}>
+      <Button varian='priamry'>Add your Pet</Button>
+      <form class=" header input-field col s6" onSubmit={createPet}>
         <label><Icon>pets</Icon></label>
         <input type='text' 
           required
