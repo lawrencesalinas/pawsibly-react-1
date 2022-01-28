@@ -3,6 +3,7 @@ import AllListings from "./AllListings";
 import { Icon, Parallax } from "react-materialize";
 import Footer from "../components/Footer";
 
+
 const HomeScreen = (props) => {
 	console.log('props in home for sitters', props)
 

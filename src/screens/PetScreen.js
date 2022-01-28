@@ -9,6 +9,8 @@ import { Button } from 'react-bootstrap'
 function PetScreen(props) {
     const [userPets, setUserPets] = useState([]);
     const [showAddPet, setShowAddPet] = useState(false)
+    const [trigger, setTrigger] = useState(false)
+    
 
     useEffect(() => {
       getUsersPets(props.user)
@@ -20,14 +22,14 @@ function PetScreen(props) {
    
         })
         .catch((err) => console.error(err));
-    }, []);
-  
+    }, [trigger]);
+  console.log('HELLLOOOOOOOOOOOOO',userPets)
   return (
   <div className='pet_screen'>
-    <ProfilePets myPets={userPets} user={props.user} />
-    {/* {showAddPet &&  <CreatePets user={props.user}/>} */}
+    <ProfilePets myPets={userPets} user={props.user} setTrigger={setTrigger}/>
+    <CreatePets user={props.user} setTrigger={setTrigger}/>
     {/* <Button onClick={() => setShowAddPet(!showAddPet)} className = 'banner_searchButton' variant='outlined' >{showAddPet? "Hide" : "Search Dates"}</Button> */}
-    <Footer/>
+
   </div>
   )
 }

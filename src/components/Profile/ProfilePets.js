@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import "./ProfilePets.css";
 import { Image } from 'react-bootstrap'
 import Footer from "../Footer";
+import apiUrl from "../../apiConfig";
+
 
 export default function ProfilePets(props) {
   //   console.log("hello", props.myPets);
@@ -32,6 +34,7 @@ export default function ProfilePets(props) {
       });
   };
 
+
   return (
     <div className="profilepets">
       <h1>My Pets</h1>
@@ -40,13 +43,16 @@ export default function ProfilePets(props) {
           props.myPets
             .filter((x) => x.name !== null && x.name !== "")
             .map((pet) => (
+              
+    
               <div className='pet'>
+ 
                 <Link
                   style={{ textDecoration: "none", color: "black" }}
                   key={pet.id}
                   to={`/pets/${pet.id}`}
                 >
-                    <Image  className = 'rounded-circle image' src= '/wally.jpeg' />
+                    <Image  src={apiUrl+pet.image}  className = 'rounded-circle image'  />
                   <h4 className="pet_name">{pet.name}</h4>
                 </Link>
                 <br></br>
