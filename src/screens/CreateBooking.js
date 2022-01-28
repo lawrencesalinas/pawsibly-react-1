@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Navigate } from "react-router-dom";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { DateRange } from "react-date-range";
@@ -7,7 +7,8 @@ import { Row, Col, Button, Container} from 'react-bootstrap'
 import "../css/CreateBooking.css";
 
 export default function CreateBooking(props) {
-  console.log("this is props for sitter booking", props);
+  // console.log("this is props for sitter booking", props);
+  const navigate = useNavigate()
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const { id } = useParams()
@@ -62,7 +63,7 @@ export default function CreateBooking(props) {
         name="date"
         id="date"
       />
-      <Button className = 'createbooking_button' variant = 'warning' onClick={createBooking}>add</Button>
+      <Button className = 'createbooking_button' variant = 'warning' ifonClick={createBooking}>add</Button>
       </Col>
       </Row>
     </div>
