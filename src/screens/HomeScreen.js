@@ -8,6 +8,7 @@ const HomeScreen = (props) => {
 	console.log('props in home for sitters', props)
 
 	const [searchResults, setSearchResults] = useState([])
+	
 
 	const searchItems = (e) => {
 		e.preventDefault()
@@ -17,7 +18,10 @@ const HomeScreen = (props) => {
 
 		const filteredListings = props.allSitters.filter((u) => {
 
-			return (u.zipcode.toString().includes(search.toString()))
+			return (
+				u.city.toLowerCase().includes(search.toLowerCase()) ||
+				u.zipcode.toString().includes(search.toString())
+			  );
 		})
 		setSearchResults(filteredListings)
 		console.log('sitters search results', filteredListings)
@@ -32,7 +36,7 @@ const HomeScreen = (props) => {
 					</h2>
 					<form onSubmit={searchItems}>
 						<div className="input-field">
-							<input id="zipcode" type="number" name="zipcode" required />
+							<input id="zipcode" type="text" name="zipcode" required />
 							<button type="submit" class="btn-floating btn-large waves-effect waves-light red accent-2"><i class="material-icons">send</i></button>
 							<label>
 								<Icon>search</Icon>

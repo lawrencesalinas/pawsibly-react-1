@@ -15,11 +15,10 @@ import axios from 'axios'
 import PetDetail from './components/Profile/PetDetail'
 import AllListings from './screens/AllListings'
 import ListingDetail from './screens/ListingDetail'
-import SitterForm from './components/Profile/SitterForm'
 import CreateReview from './components/review/Review'
 import MyBookings from './components/booking/MyBookings'
 import UserReview from './components/Profile/UserReview'
-import Contact from './components/Profile/Contact'
+import Host from './components/Profile/Host'
 import PetScreen from './screens/PetScreen'
 
 
@@ -88,13 +87,11 @@ const App = () => {
 				<Route path='/myreviews/:id' element={<UserReview  user={user} /> } />
 				<Route path='/mybookings/:id' element={<MyBookings user={user} />} />
 				<Route path='/profile' element={<ProfileScreen user={user} />} />
-				<Route path='/contact' element={<Contact setTrigger={setTrigger}user={user} allSitters={allSitters}/>} />
+				<Route path='/host' element={<Host setTrigger={setTrigger}user={user} allSitters={allSitters}/>} />
 				<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/sign-in' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/pets' element={<PetScreen msgAlert={msgAlert} user={user} />} />
 				<Route path='/pets/:id'element={<PetDetail msgAlert={msgAlert} user={user} />}/>
-				<Route path='/post'element={<SitterForm msgAlert={msgAlert} user={user} />}/>
-				<Route path='/post'element={<SitterForm msgAlert={msgAlert} user={user} />}/>
 				<Route
 					path='/sign-out'
 					element={
