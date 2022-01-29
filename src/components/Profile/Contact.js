@@ -1,4 +1,5 @@
 import React from "react";
+import SitterForm from "./SitterForm";
 
 
 export default function Contact (props) {
@@ -7,6 +8,7 @@ export default function Contact (props) {
     return(
         <div>
             Contact sitter:
+            <SitterForm setTrigger={props.setTrigger} user={props.user}/>
         </div>
     )
 }

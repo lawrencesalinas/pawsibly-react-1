@@ -30,6 +30,7 @@ const App = () => {
   const [msgAlerts, setMsgAlerts] = useState([])
 //   const user = {id: 1, email: 'wally@wally.com', token: 'Token fba3e150684cc5a46fdc67b7cac1ae58a4cfe016'}
   const [allSitters, setAllSitters] = useState([])
+  const [trigger, setTrigger] = useState(false)
 
 
 	// console.log('user in app', user)
@@ -57,7 +58,7 @@ const App = () => {
 	useEffect(() => {
 		console.log('getting all sitters')
 		getSitters()
-	}, [])
+	}, [trigger])
 	const getSitters = () => {
 		axios({
 			url: `http://localhost:8000/sitters`,
@@ -87,13 +88,13 @@ const App = () => {
 				<Route path='/myreviews/:id' element={<UserReview  user={user} /> } />
 				<Route path='/mybookings/:id' element={<MyBookings user={user} />} />
 				<Route path='/profile' element={<ProfileScreen user={user} />} />
-				<Route path='/contact/:id' element={<Contact user={user} allSitters={allSitters}/>} />
+				<Route path='/contact' element={<Contact setTrigger={setTrigger}user={user} allSitters={allSitters}/>} />
 				<Route path='/sign-up' element={<SignUp msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/sign-in' element={<SignIn msgAlert={msgAlert} setUser={setUser} />} />
 				<Route path='/pets' element={<PetScreen msgAlert={msgAlert} user={user} />} />
 				<Route path='/pets/:id'element={<PetDetail msgAlert={msgAlert} user={user} />}/>
 				<Route path='/post'element={<SitterForm msgAlert={msgAlert} user={user} />}/>
-		
+				<Route path='/post'element={<SitterForm msgAlert={msgAlert} user={user} />}/>
 				<Route
 					path='/sign-out'
 					element={

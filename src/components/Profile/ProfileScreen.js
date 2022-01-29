@@ -81,7 +81,7 @@ console.log(userData);
       <Row className='profilescreen_buttons'>
       <Link className ='link' to={`/mybookings/${props.user.id}`}><Button  variant = 'warning'>My Bookings</Button></Link>
       <Link className ='link' to={`/myreviews/${props.user.id}`}><Button variant = 'warning'>My Reviews</Button></Link>
-      <Link className ='link' to={`/contact/${props.user.id}`}><Button variant = 'warning'>Contact sitter</Button></Link>
+      <Link className ='link' to={`/contact`}><Button variant = 'warning'>Host a Pet</Button></Link>
       </Row>
     </div>
     </Col>
