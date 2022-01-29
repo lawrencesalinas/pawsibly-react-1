@@ -1,5 +1,6 @@
 import { Button } from 'react-bootstrap'
 import { useState, useEffect }  from 'react'
+import apiUrl from '../../apiConfig'
 
 export default function SitterForm(props){
   // console.log('I AM USER',props);
@@ -14,7 +15,7 @@ export default function SitterForm(props){
   const createPosting = (e) => {
     const sitter = {first_name:firstName, last_name:lastName, zipcode:zipCode, price:price, city:city, description:description}
    
-    fetch('http://localhost:8000/sitters', {
+    fetch(`${apiUrl}/sitters`, {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json',
@@ -31,6 +32,7 @@ export default function SitterForm(props){
 
 return(
     <div>
+      <h1>Host a Pet</h1>
       <label>First Name</label>
         <input className='input' type = 'text' 
         required

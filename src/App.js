@@ -20,6 +20,7 @@ import MyBookings from './components/booking/MyBookings'
 import UserReview from './components/Profile/UserReview'
 import Host from './components/Profile/Host'
 import PetScreen from './screens/PetScreen'
+import apiUrl from './apiConfig'
 
 
 
@@ -60,7 +61,7 @@ const App = () => {
 	}, [trigger])
 	const getSitters = () => {
 		axios({
-			url: `http://localhost:8000/sitters`,
+			url: `${apiUrl}/sitters`,
 			method: 'GET',
 		})
 			.then(foundSitters => {

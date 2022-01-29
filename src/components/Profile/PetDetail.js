@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import apiUrl from "../../apiConfig";
 
 export default function PetDetail(props) {
   //   console.log("user", props.user);
@@ -13,7 +14,7 @@ export default function PetDetail(props) {
   useEffect(() => {
     const getPets = () => {
       axios({
-        url: `http://localhost:8000/pets/${id}`,
+        url: `${apiUrl}/pets/${id}`,
         method: "GET",
         headers: {
           Authorization: `Token ${props.user.token}`,

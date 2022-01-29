@@ -1,6 +1,7 @@
 import {useState, useEffect} from "react";
 import axios from "axios";
 import BookingList from "./BookingList";
+import apiUrl from "../../apiConfig";
 
 export default function MyBookings (props) {
     console.log('what are these props', props)
@@ -14,7 +15,7 @@ export default function MyBookings (props) {
     
     const getMyBookings = () => {
 		axios({
-			url: `http://localhost:8000/bookings`,
+			url: `${apiUrl}/bookings`,
 			method: 'GET',
             headers: {
                 'Authorization': `Token ${props.user.token}`

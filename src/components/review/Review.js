@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import { TextInput } from "react-materialize"
 import axios from "axios"
 import { useParams, useNavigate } from "react-router-dom"
+import apiUrl from "../../apiConfig"
 
 
 
@@ -24,7 +25,7 @@ export default function CreateReview(props) {
 
     const getSingleSitter = () => {
         axios({
-            url: `http://localhost:8000/sitters/${id}`,
+            url: `${apiUrl}/sitters/${id}`,
             method: 'GET',
         })
             .then(foundSingleSitter => {
@@ -39,7 +40,7 @@ export default function CreateReview(props) {
 
     
 
-        fetch(`http://localhost:8000/reviews`, {
+        fetch(`${apiUrl}/reviews`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

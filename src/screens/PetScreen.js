@@ -22,7 +22,7 @@ function PetScreen(props) {
       })
       .catch((err) => console.error(err));
   }, [trigger]);
-  console.log("HELLLOOOOOOOOOOOOO", userPets);
+
   return (
     <div className="pet_screen">
       <ProfilePets

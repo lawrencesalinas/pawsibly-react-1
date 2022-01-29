@@ -8,6 +8,8 @@ import { Row, Image, Col, Card } from "react-bootstrap";
 import Rating from "../components/Rating";
 import "../css/ListingDetail.css";
 import Footer from "../components/Footer";
+import apiUrl from "../apiConfig";
+
 
 export default function ListingDetail(props) {
   console.log("sitter listing detail props", props);
@@ -20,7 +22,7 @@ export default function ListingDetail(props) {
   useEffect(() => {
   const getSingleSitter = () => {
     axios({
-      url: `http://localhost:8000/sitters/${id}`,
+      url: `${apiUrl}/sitters/${id}`,
       method: "GET",
     }).then((foundSingleSitter) => {
       console.log("this is single sitter", foundSingleSitter.data.sitter.id);
