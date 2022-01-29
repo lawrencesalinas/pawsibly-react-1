@@ -71,12 +71,7 @@ return(
        />
       
       <Button onClick={createPosting} variant= 'success'>Post</Button>
-   
-       <p>{lastName}</p>
-       <p>{firstName}</p>
-       <p>{description}</p>
-   <p>{price}</p>
-       {zipCode}
+
        
     </div>
   )
