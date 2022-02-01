@@ -14,7 +14,7 @@ export default function AllUserReview(props) {
                                 <a key="1" href="#">Back To Top</a>
                             ]}
                             closeIcon={<Icon>close</Icon>}
-                            header={<CardTitle image="https://images.pexels.com/photos/5731822/pexels-photo-5731822.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" />}
+                            header={<CardTitle image="" />}
                             revealIcon={<Icon>more_vert</Icon>}
                             title={props.reviewListing.sitter}
                         >
